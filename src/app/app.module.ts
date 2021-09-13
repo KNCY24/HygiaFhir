@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { AddMedicationComponent } from './add-medication/add-medication.component';
 import { AddAdministrationComponent } from './add-administration/add-administration.component';
@@ -10,6 +11,22 @@ import { ViewParametersComponent } from './view-parameters/view-parameters.compo
 import { AddAppointmentComponent } from './add-appointment/add-appointment.component';
 import { ViewBoardComponent } from './view-board/view-board.component';
 import { ViewQuestionnaireComponent } from './view-questionnaire/view-questionnaire.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule,Routes } from '@angular/router';
+import { ViewToolbarComponent } from './view-toolbar/view-toolbar.component';
+
+declare var require:any;
+
+const appRoutes : Routes = [
+  {path:'KREMS',component:ViewBoardComponent},
+  {path:'KREMS/Questionnaire',component:ViewQuestionnaireComponent},
+  {path:'KREMS/addMedication',component:AddMedicationComponent},
+  {path:'KREMS/addAdministration',component:AddAdministrationComponent},
+  {path:'KREMS/addParameters',component:AddParametersComponent},
+  {path:'KREMS/viewParameters',component:ViewParametersComponent},
+  {path:'KREMS/addAppointment',component:AddAppointmentComponent}
+]
 
 @NgModule({
   declarations: [
@@ -20,12 +37,16 @@ import { ViewQuestionnaireComponent } from './view-questionnaire/view-questionna
     ViewParametersComponent,
     AddAppointmentComponent,
     ViewBoardComponent,
-    ViewQuestionnaireComponent
+    ViewQuestionnaireComponent,
+    ViewToolbarComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes)
   ],
+  exports:[RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
