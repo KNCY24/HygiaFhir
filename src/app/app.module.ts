@@ -19,13 +19,13 @@ import { ViewToolbarComponent } from './view-toolbar/view-toolbar.component';
 declare var require:any;
 
 const appRoutes : Routes = [
-  {path:'KREMS',component:ViewBoardComponent},
-  {path:'KREMS/Questionnaire',component:ViewQuestionnaireComponent},
-  {path:'KREMS/addMedication',component:AddMedicationComponent},
-  {path:'KREMS/addAdministration',component:AddAdministrationComponent},
-  {path:'KREMS/addParameters',component:AddParametersComponent},
-  {path:'KREMS/viewParameters',component:ViewParametersComponent},
-  {path:'KREMS/addAppointment',component:AddAppointmentComponent}
+  {path:'',component:ViewBoardComponent},
+  {path:'Questionnaire',component:ViewQuestionnaireComponent},
+  {path:'addMedication',component:AddMedicationComponent},
+  {path:'addAdministration',component:AddAdministrationComponent},
+  {path:'addParameters',component:AddParametersComponent},
+  {path:'viewParameters',component:ViewParametersComponent},
+  {path:'addAppointment',component:AddAppointmentComponent}
 ]
 
 @NgModule({
