@@ -27,9 +27,10 @@ const appRoutes : Routes = [
   {path:'addMedication',component:AddMedicationComponent},
   {path:'addAdministration',component:AddAdministrationComponent},
   {path:'addParameters',component:AddParametersComponent},
-  {path:'viewParameters',component:ViewParametersComponent},
+  {path:'parameters',component:ViewParametersComponent},
   {path:'addAppointment',component:AddAppointmentComponent},
-  {path:'profil',component:ViewProfilComponent}
+  {path:'profil',component:ViewProfilComponent},
+  {path:'medication',component:ViewMedicationComponent},
 ]
 
 @NgModule({

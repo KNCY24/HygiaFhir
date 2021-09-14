@@ -1,8 +1,9 @@
-$blue:#4169E1;
+$blue:#233B6E;
 $blue-light:#abbff8;
 $light:#7a8183;
 $red:#ff0000;
 $green:#00ff00;
+
 
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
 
@@ -22,24 +23,47 @@ $green:#00ff00;
     background-color: white;
     color: #2c2b2b;
     padding: 0 10px;
-    span{
-        position: relative;
-        left:-40px;
-        font-size: 40px;
-        font-weight: bold;
-        font-family: 'Amatic SC', cursive;
-    }
       
+    div{
+        position: relative;
+        top:16px;
+        right:30px;
+        &.rappel{
+            border-radius: 5px;
+            padding:10px 30px;
+            text-align: center;
+            background-color: $blue;
+            color: white;
+            span{
+                position: relative;
+                left:3px;
+                top:-4px;
+            }
+            img{
+                position: relative;
+                top:2px;
+                right:3px;
+            }
+            &:hover{
+                cursor: pointer;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+            }
+        }
+    }
     img {
         &#logo-img{
             padding-top : 30px;
-            width:150px;
+            width:300px;
+            &:hover{
+                cursor: pointer;
+            }
         }
         &#alert-img {
             padding-top : 30px;
             width: 50px;
             &:hover{
-                width:52px;
+                transform: translateY(-2px);
                 cursor: pointer;
             }
         }
