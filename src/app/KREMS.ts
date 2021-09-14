@@ -440,7 +440,7 @@ export class Metadata{
 
 export class Questionnaire {
     //hellooooooo
-    ressourceType: string="Questionnaire";
+    resourceType: string="Questionnaire";
     url: string="";
     identifier:Identifier[]=[];
     version: string="";

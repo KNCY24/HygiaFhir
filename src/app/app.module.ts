@@ -13,19 +13,20 @@ import { ViewBoardComponent } from './view-board/view-board.component';
 import { ViewQuestionnaireComponent } from './view-questionnaire/view-questionnaire.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule,Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ViewToolbarComponent } from './view-toolbar/view-toolbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-declare var require:any;
+declare var require: any;
 
-const appRoutes : Routes = [
-  {path:'',component:ViewBoardComponent},
-  {path:'Questionnaire',component:ViewQuestionnaireComponent},
-  {path:'addMedication',component:AddMedicationComponent},
-  {path:'addAdministration',component:AddAdministrationComponent},
-  {path:'addParameters',component:AddParametersComponent},
-  {path:'viewParameters',component:ViewParametersComponent},
-  {path:'addAppointment',component:AddAppointmentComponent}
+const appRoutes: Routes = [
+  { path: '', component: ViewBoardComponent },
+  { path: 'Questionnaire', component: ViewQuestionnaireComponent },
+  { path: 'addMedication', component: AddMedicationComponent },
+  { path: 'addAdministration', component: AddAdministrationComponent },
+  { path: 'addParameters', component: AddParametersComponent },
+  { path: 'viewParameters', component: ViewParametersComponent },
+  { path: 'addAppointment', component: AddAppointmentComponent }
 ]
 
 @NgModule({
@@ -44,9 +45,10 @@ const appRoutes : Routes = [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule
   ],
-  exports:[RouterModule],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
