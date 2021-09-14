@@ -3,14 +3,12 @@
 <div>
     <h2>Ma glycémie</h2>
     <span [innerHTML]="determineValueGlycemie()"></span>
-    <p><span>{{parameter.valueDecimal}}</span></p>
-    <p><span [innerHTML]="parameter.valueDecimal"></span></p>
     <span>g/L</span> 
 </div>
 
 <div>
     <h2>Mon poids</h2>
-    <span>{{parameter.valueDecimal}}</span>
+    <span [innerHTML]="determineValuePoids()"></span>
     <span>kg</span> 
 </div>
 
