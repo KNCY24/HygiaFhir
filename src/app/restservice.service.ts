@@ -7,7 +7,7 @@ import { Medication } from './KREMS';
   providedIn: 'root'
 })
 export class RestserviceService {
-  server : string="https://fhir.eole-consulting.io/"
+  server : string="https://fhir.eole-consulting.io/api/"
 
   constructor(private http:HttpClient) { }
 
@@ -25,7 +25,7 @@ export class RestserviceService {
   }
 
   getMedication():Observable<Medication> {
-    return this.http.get<Medication>(this.server+"get/medication")
+    return this.http.get<Medication>(this.server+"medication")
   }
 
   
