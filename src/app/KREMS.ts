@@ -113,7 +113,7 @@ export class Patient {
     maritalStatus : CodeableConcept = new CodeableConcept();
     multipleBirthBoolean : boolean = false;
     multipleBirthInteger : number = 0;
-    photo : Attachement[]=[];
+    photo : Attachment[]=[];
     contact : Contact[]=[];
     communication : Communication[]=[];
     //generalPractitioner: 
@@ -155,7 +155,7 @@ export class Coding{
     userSelected : boolean = false;
 }
 
-export class Attachement{
+export class Attachment{
     contentType : string = "";
     language : string = "";
     data : Byte = 0;
@@ -262,7 +262,7 @@ export class Parameter{
     valueAddress : Address = new Address();
     valueAge : number = 0; //Age
     valueAnnotation : Annotation = new Annotation();
-    valueAttachement : Attachement = new Attachement();
+    valueAttachment : Attachment = new Attachment();
     valueCodeableConcept : CodeableConcept = new CodeableConcept();
     valueCoding : Coding = new Coding();
     valueContactPoint : ContactPoint = new ContactPoint();
