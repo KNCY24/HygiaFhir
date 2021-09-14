@@ -11,6 +11,14 @@ export class RestserviceService {
 
   constructor(private http:HttpClient) { }
 
+  get getServer(){
+    return this.server;
+  }
+
+  set setServer(value: string){
+    this.server=value;
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);

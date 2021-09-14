@@ -1,12 +1,12 @@
 import { Byte } from "@angular/compiler/src/util";
-import { Scheduler } from "rxjs";
+
 
 export class Medication {
     resourceType:string="Medication";
     identifier:Identifier[]=[];
     code:CodeableConcept=new CodeableConcept();
     status:string="";
-    //manufacturer:
+    manufacturer: string = ""; //Reference(Organization)
     form:CodeableConcept=new CodeableConcept();
     amount:Ratio=new Ratio();
     ingredient: Ingredient[]=[];
@@ -19,7 +19,7 @@ export class Identifier{
     system : string = ""; //uri
     value : string = "";
     period : Period = new Period();
-    assigner : Organization = new Organization(); //Reference(Organization)
+    assigner : string = ""; //Reference(Organization)
 }
 
 export class Period{
@@ -34,7 +34,7 @@ export class CodeableConcept {
 
 export class Ingredient {
     itemCodeableConcept:CodeableConcept=new CodeableConcept();
-    //itemReference
+    itemReference : string = ""; //Reference(Substance|Medication)
     isActive:boolean=false;
     strength:Ratio=new Ratio();
 }
@@ -61,30 +61,30 @@ export class MedicationAdministration {
     resourceType:string="MedicationAdministration";
     identifier:Identifier[]=[];
     instantiates:string[]=[];
-    //partOf
+    partOf : string = ""; //Reference(MedicationAdministration|Procedure)
     status:string="";
     statusReason:CodeableConcept[]=[];
     category:CodeableConcept=new CodeableConcept();
     medicationCodeableConcept:CodeableConcept=new CodeableConcept();
-    //medicationReference:
-    //subject
-    //context
-    //supportingInformation:
+    medicationReference: string = ""; //Reference(Medication)
+    subject : string = ""; //Reference(Patient|Group) 
+    context : string = ""; //Reference(Encounter|EpisodeOfCare)
+    supportingInformation: string[]=[];//Reference(Any) 
     effectiveDateTime:Date=new Date();
     effectivePeriod:Period=new Period();
     performer:Performer[]=[];
     reasonCode:CodeableConcept[]=[];
-    //reasonreference
-    //request
-    //device
+    reasonreference : string[]=[]; //Reference(Condition|Observation|DiagnosticReport)
+    request : string = ""; //Reference(MedicationRequest) 
+    device : string = ""; //Reference(Device)
     note:Annotation[]=[];
     dosage:Dosage=new Dosage();
-    //eventHistory
+    eventHistory : string[]=[]; //Reference(Provenance)
 }
 
 export class Performer{
     function:CodeableConcept=new CodeableConcept();
-    //actor:
+    actor: string = ""; //Reference
 }
 
 
@@ -93,9 +93,9 @@ export class Dosage{
     site:CodeableConcept=new CodeableConcept();
     route:CodeableConcept=new CodeableConcept();
     method:CodeableConcept=new CodeableConcept();
-    //dose
+    dose : string = ""; //Reference
     rateRatio:Ratio=new Ratio();
-    //rateQuantity
+    rateQuantity : string = ""; //Reference
 }
 
 export class Patient {
@@ -116,8 +116,8 @@ export class Patient {
     photo : Attachment[]=[];
     contact : Contact[]=[];
     communication : Communication[]=[];
-    generalPractitioner: Organization = new Organization();
-    managingOrganization : Organization = new Organization(); //Reference(Organization)
+    generalPractitioner: string[]=[]; //Reference
+    managingOrganization : string=""; //Reference
     link : Link[]=[];
 }
 
@@ -172,7 +172,7 @@ export class Contact {
     telecom : ContactPoint[]=[]
     adress : Address = new Address();
     gender : string = "";
-    organization : Organization = new Organization(); //Reference(Organization)
+    organization : string = ""; //Reference(Organization)
     period : Period = new Period();
 
 }
@@ -194,9 +194,9 @@ export class Organization{
     alias : string[]=[];
     telecom : ContactPoint[]=[];
     address : Address[]=[];
-    //partOf : Organization = new Organization(); //Reference(Organazation)
+    partOf : string = ""; //Reference(Organazation)
     contact : ContactAutre = new ContactAutre();
-    endpoint : Endpoint[]=[]; //Reference(Endpoint)
+    endpoint : string[]=[]; //Reference(Endpoint)
 }
 
 
@@ -214,7 +214,7 @@ export class Endpoint{
     status : string ="";
     connectionType : Coding = new Coding();
     name : string = "";
-    managingOrganization : Organization = new Organization(); //Reference(Organization)
+    managingOrganization : string = ""; //Reference(Organization)
     contact : ContactPoint[]=[];
     period : Period = new Period();
     payloadType : CodeableConcept[]=[];
@@ -229,7 +229,7 @@ export class Communication{
 }
 
 export class Link{
-    //other : 
+    other : string =""; //Reference(Patient|RelatedPerson)
     type : string = "";
 }
 
@@ -248,13 +248,13 @@ export class Parameter{
     valueDateTime : Date = new Date();
     valueDecimal : number = 0;
     valueId : string = "";
-    //valueInstant : Time = new Time();
+    valueInstant : Date = new Date();
     valueInterger : number = 0;
     valueMarkdown : string = ""; //markdown
     valueOid : string = ""; //oid
     valuePositiveInt : number = 0;
     valueString : string = "";
-    //valueTime : Time = new TimeRanges();
+    valueTime : Date = new Date();
     valueUnsignedInt : number = 0;
     valueUri : string = ""; //uri
     valueUrl : string = ""; //url
@@ -295,7 +295,7 @@ export class Parameter{
 }
 
 export class Annotation{
-    //authorReference :
+    authorReference : string = ""; //Reference(Practitioner|Patient|RelatedPerson|Organization)
     authorString : string = "";
     time : Date = new Date();
     text : string = ""; //markdown
@@ -330,9 +330,9 @@ export class SampledData{
 
 export class Signature{
     type : Coding[]=[];
-    //when : Time = TimeRanges();
-    //who : 
-    //onBehalfOf : 
+    when : Date = new Date();
+    who : string = ""; //Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)
+    onBehalfOf : string = ""; //Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)
     targetFormat : string = "";
     sigFormat : string = "";
     data : Byte = 0;
@@ -359,7 +359,7 @@ export class Repeat{
     periodMax : number = 0;
     periodUnit : number = 0;
     dayOfWeek : string[]=[];
-    timeOfDay : Date[]=[]; //Time
+    timeOfDay : Date[]=[]; 
     when : string[]=[];
     offset : number = 0;
 }
@@ -372,14 +372,14 @@ export class Contributor{
 
 export class DataRequirement{
     type : string = "";
-    //profile : StructureDefinition = new StructureDefinition();
+    //profile : 
     subjectCodeableConcept : CodeableConcept = new CodeableConcept();
-    //subjectReference : Group = new Group();
+    //subjectReference : 
     mustSupport : string[]=[];
-    //codeFilter : CodeFilter[]=[];
-    //dataFilter : DataFilter[]=[];
+    //codeFilter : 
+    //dataFilter : 
     limit : number = 0;
-    //sort : Sort = new Sort();
+    //sort :
 }
 
 export class Expression{
@@ -397,7 +397,7 @@ export class ParameterDefinition{
     max : string = "";
     documentation : string = "";
     type : string = "";
-    //profile : StructureDefinition = new StructureDefinition();
+    //profile : 
 }
 
 export class RelatedArtifact{
@@ -413,7 +413,7 @@ export class TriggerDefinition{
     type : string = "";
     name : string = "";
     timingTiming : Timing = new Timing();
-  //timingReference : Schedule = new Schedule();
+  //timingReference : 
     timingDate : Date = new Date();
     timingDateTime : Date = new Date();
     data : DataRequirement[]=[];
@@ -430,11 +430,17 @@ export class UsageContext{
 }
 
 export class Resource{
-
+    id : string = "";
+    meta : Metadata = new Metadata();
 }
 
 export class Metadata{
-
+    versionId : string = "";
+    lastUpdated : Date = new Date();
+    source : string = "";
+    //profile :
+    security : Coding[]=[];
+    tag : Coding[]=[];
 }
 
 
@@ -500,7 +506,7 @@ export class EnableWhen{
     answerString :string="";
     answerCoding : Coding=new Coding();
     answerQuantity : number=0;
-      //answerReference : { Reference(Any)
+    answerReference : string = ""; //Reference(Any)
 }
 export class AnswerOption{
     valueInteger : number=0;
@@ -508,7 +514,7 @@ export class AnswerOption{
     valueTime : Date =new Date();
     valueString : string="";
     valueCoding : Coding=new Coding();
-    //valueReference : { Reference(Any) };
+    valueReference : string = "";  
     initialSelected : boolean = true;
 }
 
@@ -524,7 +530,7 @@ export class Initial{
     valueAttachment : Attachment =new Attachment ();
     valueCoding : Coding=new Coding();
     valueQuantity : number=0;
-    //valueReference : { Reference(Any)
+    valueReference : string = ""; //Reference(Any)
 }
 
 export class QuestionnaireResponse {
@@ -532,16 +538,15 @@ export class QuestionnaireResponse {
     // from Resource: id; meta; implicitRules; and language
     // from DomainResource: text; contained; extension; and modifierExtension
     identifier :  string ="" ; // Unique id for this set of answers
-    //basedOn :  Reference(CarePlan|ServiceRequest) ; // Request fulfilled by this QuestionnaireResponse
-    //partOf :  Reference(Observation|Procedure) ; // Part of this action
+    basedOn :  string[]=[]; //Reference(CarePlan|ServiceRequest) ; // Request fulfilled by this QuestionnaireResponse
+    partOf :  string[]=[]; //Reference(Observation|Procedure) ; // Part of this action
     //questionnaire :  canonical(Questionnaire) ; // Form being answered
     status : string =""; // R!  in-progress | completed | amended | entered-in-error | stopped
-    //subject :  Reference(Any) ; // The subject of the questions
-    //encounter :  Reference(Encounter) ; // Encounter created as part of
+    subject :  string = ""; //Reference(Any) ; // The subject of the questions
+    encounter :  string = ""; //Reference(Encounter) ; // Encounter created as part of
     authored :Date =new Date(); // Date =new Date() the answers were gathered
-    // author :  Reference(Device|Practitioner|PractitionerRole|Patient|
-    // RelatedPerson|Organization) ; // Person who received and recorded the answers
-    //source :  Reference(Patient|Practitioner|PractitionerRole|RelatedPerson) ; // The person who answered the questions
+    author :  string = ""; //Reference(Device|Practitioner|PractitionerRole|Patient|RelatedPerson|Organization) ; // Person who received and recorded the answers
+    source : string = ""; //Reference(Patient|Practitioner|PractitionerRole|RelatedPerson) ; // The person who answered the questions
     item :ItemR[]=[];
 }
 export class ItemR{
@@ -562,6 +567,6 @@ export class  Answer{
     valueAttachment : Attachment=new Attachment ();
     valueCoding :  Coding=new Coding();
     valueQuantity : number =0;
-    //valueReference :  Reference(Any) ;
+    valueReference :  string = ""; //Reference(Any) 
     //item :  Content as for QuestionnaireResponseitem
 }
