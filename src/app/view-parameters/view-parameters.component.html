@@ -8,38 +8,43 @@
         <div id="glycémie" class="property">
             <div>
                 <img src="../assets/images/mes glycemies.png" />
-                <h2>Ma glycémie</h2>               
+                <h2>Ma glycémie</h2>
             </div>
-            <div *ngFor="let valeur of determineValueGlycemie()">
-                <span [innerHTML]="valeur"></span><span> g/L</span>
+            <div *ngFor="let parameter of historiqueGlycemie">
+                <span [innerHTML]="parameter.valueDate"></span><span> : </span><span
+                    [innerHTML]="parameter.valueDecimal"></span><span> g/L</span>
             </div>
         </div>
 
         <div id="poids" class="property">
             <div>
                 <img src="../assets/images/balance-de-pesee.png" />
-                <h2>Mon poids</h2>              
+                <h2>Mon poids</h2>
             </div>
-            <div *ngFor="let valeur of historiquePoids">
-                <span [innerHTML]="valeur"></span><span> kg</span>
+            <div *ngFor="let parameter of historiquePoids">
+                <span [innerHTML]="parameter.valueDate"></span><span> : </span><span
+                    [innerHTML]="parameter.valueDecimal"></span><span> kg</span>
             </div>
         </div>
 
         <div id="activite" class="property">
             <div>
                 <img src="../assets/images/gymnastique.png" />
-                <h2>Mes activités physiques</h2>             
+                <h2>Mes activités physiques</h2>
             </div>
-            <div *ngFor="let valeur of determineValueActivite()">
-                <span [innerHTML]="valeur"></span>
+            <div *ngFor="let parameter of historiqueActivite">
+                <span [innerHTML]="parameter.valueDate"></span><span> : </span><span
+                    [innerHTML]="parameter.valueString"></span>
             </div>
         </div>
 
     </div>
 
-    <div class="ajout">
-        <button class="button" type="button">Ajouter des paramètres</button>
-    </div>
+    <a routerLink="/addParameters">
+        <div class="ajout">
+            <button class="button" type="button">Ajouter des paramètres</button>
+        </div>
+    </a>
 
 
 </div>
