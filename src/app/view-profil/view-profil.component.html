@@ -1,1 +1,19 @@
-<p>view-profil works!</p>
+    <!--Contenu Page-->
+    <div class="content">
+        <div class="identite">
+        <!--Bandeau Gauche-->
+            <div id="gauche">
+                <p> <label>nom: {{getOfficialFamilyName(patient.name)}} </label> </p>
+                <p> <label>prenom: {{getOfficialGivenName(patient.name)}} </label></p>
+                <p><label>Date de naissance: {{patient.birthDate}} </label></p>
+            </div>
+  
+        <!--Droite-->
+            <div id="droite">
+                <p><label>Adresse:  {{getAddress(patient.address)}}</label></p>
+                <p><label>E-mail: {{getEmail(patient.telecom)}}</label></p>
+                <p><label>Telephone: {{getTelephone(patient.telecom)}}</label></p>
+                <p><label>Contact d'urgence: </label></p>
+            </div>
+        </div>
+    </div>
