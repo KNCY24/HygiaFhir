@@ -1,5 +1,6 @@
 
 import { Byte } from "@angular/compiler/src/util";
+import { Scheduler } from "rxjs";
 
 export class Medication {
     resourceType:string="Medication";
@@ -116,7 +117,7 @@ export class Patient {
     photo : Attachement[]=[];
     contact : Contact[]=[];
     communication : Communication[]=[];
-    //generalPractitioner: 
+    generalPractitioner: Organization = new Organization();
     managingOrganization : Organization = new Organization(); //Reference(Organization)
     link : Link[]=[];
 }
@@ -194,7 +195,7 @@ export class Organization{
     alias : string[]=[];
     telecom : ContactPoint[]=[];
     address : Address[]=[];
-    //partOf : Organization = new Organization();
+    partOf : Organization = new Organization(); //Reference(Organazation)
     contact : ContactAutre = new ContactAutre();
     endpoint : Endpoint[]=[]; //Reference(Endpoint)
 }
@@ -339,39 +340,99 @@ export class Signature{
 }
 
 export class Timing{
-    
+    event : Date[]=[];
+    repeat : Repeat = new Repeat();
+    code : CodeableConcept = new CodeableConcept();   
+}
+
+export class Repeat{
+    boundsDuration : number = 0;
+    boundsRange : Range = new Range();
+    boundsPeriod : Period = new Period();
+    count : number = 0;
+    countMax : number = 0;
+    duration : number = 0;
+    durationMax : number = 0;
+    durationUnit : string = "";
+    frequency : number = 0;
+    frequencyMax : number = 0;
+    period : number = 0;
+    periodMax : number = 0;
+    periodUnit : number = 0;
+    dayOfWeek : string[]=[];
+    timeOfDay : Date[]=[]; //Time
+    when : string[]=[];
+    offset : number = 0;
 }
 
 export class ContactDetail{
-
+    name : string = "";
+    telecom : ContactPoint[]=[];
 }
 
 export class Contributor{
-
+    type : string = "";
+    name : string = "";
+    contact : ContactDetail[]=[];
 }
 
 export class DataRequirement{
-
+    type : string = "";
+    //profile : StructureDefinition = new StructureDefinition();
+    subjectCodeableConcept : CodeableConcept = new CodeableConcept();
+    //subjectReference : Group = new Group();
+    mustSupport : string[]=[];
+    //codeFilter : CodeFilter[]=[];
+    //dataFilter : DataFilter[]=[];
+    limit : number = 0;
+    //sort : Sort = new Sort();
 }
 
 export class Expression{
-
+    description : string = "";
+    name : string = ""; //id
+    language : string = "";
+    expression : string = "";
+    reference : string = "";
 }
 
 export class ParameterDefinition{
-
+    name : string = "";
+    use : string = "";
+    min : number = 0;
+    max : string = "";
+    documentation : string = "";
+    type : string = "";
+    //profile : StructureDefinition = new StructureDefinition();
 }
 
 export class RelatedArtifact{
-
+   type : string = "";
+   label : string = "";
+   display : string = "";
+   citation : string = "";
+   document : Attachement = new Attachement();
+   resource : any; 
 }
 
 export class TriggerDefinition{
+    type : string = "";
+    name : string = "";
+    timingTiming : Timing = new Timing();
+  //timingReference : Schedule = new Schedule();
+    timingDate : Date = new Date();
+    timingDateTime : Date = new Date();
+    data : DataRequirement[]=[];
+    condition : Expression = new Expression();
 
 }
 
 export class UsageContext{
-
+    code : Coding = new Coding();
+    valueCodeableConcept : CodeableConcept = new CodeableConcept();
+    valueQuantity : Quantity = new Quantity();
+    valueRange : Range = new Range();
+    valueReference : any; //PlanDefinition ou ResearchStudy ou InsurancePlan ou HealthcareService ou Groupe ou Location ou Organization
 }
 
 export class Resource{
