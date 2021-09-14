@@ -380,7 +380,7 @@ export class Questionnaire {
     //hellooooooo
     ressourceType: string="Questionnaire";
     url: string="";
-    //identifier:Identifier[]=[];
+    identifier:Identifier[]=[];
     version: string="";
     name: string="";
     title: string="";
@@ -393,13 +393,13 @@ export class Questionnaire {
     contact: ContactDetail[]=[];
     description: string = "";
     useContext: UsageContext[]=[];
-    //jurisdiction: CodeAbleConcept[]=[];
+    jurisdiction: CodeableConcept[]=[];
     purpose: string="";
     copyright: string="";
     approvalDate: Date =new Date();
     lastReviewDate: Date =new Date();
-    //effectivePeriod: Period= new Period();
-    //code: Coding[]=[];
+    effectivePeriod: Period= new Period();
+    code: Coding[]=[];
     item: Item[]=[];
     enableBehavior: string="";
     required: boolean = true;
@@ -428,7 +428,7 @@ export class UsageContext{
 export class Item{
     linkId : string="";
     definition : string="";
-    //code : Coding[]=[];
+    code : Coding[]=[];
     prefix : string="";
     text : string="";
     type : string="";
@@ -467,7 +467,7 @@ export class Initial{
     valueTime : Date =new Date();
     valueString : string="";
     valueUri : string="";
-    //valueAttachment : Attachment =new Attachment ();
+    valueAttachment : Attachment =new Attachment ();
     valueCoding : Coding=new Coding();
     valueQuantity : number=0;
     //valueReference : { Reference(Any)
@@ -505,7 +505,7 @@ export class  Answer{
     valueTime: Date =new Date();
     valueString: string ="";
     valueUri : string ="";
-    //valueAttachment :   Attachment =new Attachment ();
+    valueAttachment : Attachment=new Attachment ();
     valueCoding :  Coding=new Coding();
     valueQuantity : number =0;
     //valueReference :  Reference(Any) ;
