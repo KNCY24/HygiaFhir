@@ -1,4 +1,102 @@
+
 import { Byte } from "@angular/compiler/src/util";
+
+export class Medication {
+    resourceType:string="Medication";
+    identifier:Identifier[]=[];
+    code:CodeableConcept=new CodeableConcept();
+    status:string="";
+    //manufacturer:
+    form:CodeableConcept=new CodeableConcept();
+    amount:Ratio=new Ratio();
+    ingredient: Ingredient[]=[];
+    batch:Batch=new Batch();
+}
+
+export class Identifier{
+    use : string = "";
+    type : CodeableConcept = new CodeableConcept();
+    system : string = ""; //uri
+    value : string = "";
+    period : Period = new Period();
+    assigner : Organization = new Organization(); //Reference(Organization)
+}
+
+export class Period{
+    start:Date=new Date();
+    end:Date=new Date();
+}
+
+export class CodeableConcept {
+    coding:Coding[]=[];
+    text:string="";
+}
+
+export class Ingredient {
+    itemCodeableConcept:CodeableConcept=new CodeableConcept();
+    //itemReference
+    isActive:boolean=false;
+    strength:Ratio=new Ratio();
+}
+
+export class Ratio {
+    numerator:Quantity=new Quantity();
+    denominator:Quantity=new Quantity();
+}
+
+export class Quantity {
+    value:number=0;
+    comparator:string="";
+    unit:string="";
+    system:string="";
+    code:string="";
+}
+
+export class Batch {
+    lotNumber:string="";
+    expirationDate:Date=new Date();
+}
+
+export class MedicationAdministration {
+    resourceType:string="MedicationAdministration";
+    identifier:Identifier[]=[];
+    instantiates:string[]=[];
+    //partOf
+    status:string="";
+    statusReason:CodeableConcept[]=[];
+    category:CodeableConcept=new CodeableConcept();
+    medicationCodeableConcept:CodeableConcept=new CodeableConcept();
+    //medicationReference:
+    //subject
+    //context
+    //supportingInformation:
+    effectiveDateTime:Date=new Date();
+    effectivePeriod:Period=new Period();
+    performer:Performer[]=[];
+    reasonCode:CodeableConcept[]=[];
+    //reasonreference
+    //request
+    //device
+    note:Annotation[]=[];
+    dosage:Dosage=new Dosage();
+    //eventHistory
+}
+
+export class Performer{
+    function:CodeableConcept=new CodeableConcept();
+    //actor:
+}
+
+
+export class Dosage{
+    text:string="";
+    site:CodeableConcept=new CodeableConcept();
+    route:CodeableConcept=new CodeableConcept();
+    method:CodeableConcept=new CodeableConcept();
+    //dose
+    rateRatio:Ratio=new Ratio();
+    //rateQuantity
+}
 
 export class Patient {
     resourceType: string="Patient";
@@ -34,10 +132,6 @@ export class HumanName{
 
 }
 
-export class Period{
-    start : Date = new Date();
-    end : Date = new Date();
-}
 
 export class Address{
     use : string = "";
@@ -52,13 +146,9 @@ export class Address{
     period : Period = new Period();
 }
 
-export class CodeableConcept{
-    coding : Coding[]=[];
-    text : string = "";
-}
 
 export class Coding{
-    system : string = ""; //Normalement type uri
+    system : string = ""; //uri
     version : string = "";
     code : string = "";
     display : string = "";
@@ -68,7 +158,7 @@ export class Coding{
 export class Attachement{
     contentType : string = "";
     language : string = "";
-    date : Byte = 0;
+    data : Byte = 0;
     url : string = "";
     size : number = 0;
     hash : Byte = 0;
@@ -109,14 +199,7 @@ export class Organization{
     endpoint : Endpoint[]=[]; //Reference(Endpoint)
 }
 
-export class Identifier{
-    use : string = "";
-    type : CodeableConcept = new CodeableConcept();
-    system : string = ""; //uri
-    value : string = "";
-    period : Period = new Period();
-    assigner : Organization = new Organization(); //Reference(Organization)
-}
+
 
 export class ContactAutre{
     purpose : ContactPoint = new ContactPoint();
@@ -223,22 +306,9 @@ export class Money{
     currency : string ="";
 }
 
-export class Quantity{
-    value : number = 0;
-    comparator : string = "";
-    unit : string = "";
-    system : string = "";
-    code : string = "";
-}
-
 export class Range{
     low : Quantity = new Quantity(); //Quantity(SimpleQuantity)
     high : Quantity = new Quantity(); //Quantity(SimpleQuantity)
-}
-
-export class Ratio{
-    numerator : Quantity = new Quantity();
-    denominator : Quantity = new Quantity();
 }
 
 export class Reference{
@@ -269,7 +339,7 @@ export class Signature{
 }
 
 export class Timing{
-
+    
 }
 
 export class ContactDetail{
@@ -301,10 +371,6 @@ export class TriggerDefinition{
 }
 
 export class UsageContext{
-
-}
-
-export class Dosage{
 
 }
 
