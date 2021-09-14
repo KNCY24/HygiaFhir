@@ -26,25 +26,29 @@ export class ViewParametersComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  determineValueGlycemie(){
-   
+  determineValueGlycemie() : number {
+
+    this.parameter.valueDecimal=0;
+
     for (let i = 0; i < this.parameters.parameter.length; i++){
       if (this.parameters.parameter[i].name=="glycémie"){
         this.parameter.valueDecimal = this.parameters.parameter[i].valueDecimal;
-      }
-    return this.parameter.valueDecimal;
+      } 
     }
+    return this.parameter.valueDecimal;
 
   } 
 
-  determineValuePoids(){
+  determineValuePoids() : number {
 
+    this.parameter.valueDecimal=0;
+    
     for (let i = 0; i < this.parameters.parameter.length; i++){
       if (this.parameters.parameter[i].name=="poids"){
         this.parameter.valueDecimal = this.parameters.parameter[i].valueDecimal;
-      }
-    return this.parameter.valueDecimal;
+      } 
     }
+    return this.parameter.valueDecimal;
   }
 
 }
