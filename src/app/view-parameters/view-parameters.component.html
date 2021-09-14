@@ -1,17 +1,45 @@
-<h1>Mes paramètres</h1>
+<app-view-toolbar></app-view-toolbar>
 
-<div>
-    <h2>Ma glycémie</h2>
-    <span [innerHTML]="determineValueGlycemie()"></span>
-    <span>g/L</span> 
-</div>
+<div class="content">
+    <h1>Mes paramètres</h1>
 
-<div>
-    <h2>Mon poids</h2>
-    <span [innerHTML]="determineValuePoids()"></span>
-    <span>kg</span> 
-</div>
+    <div class="menu">
 
-<div>
-    <h2>Mes activités physiques</h2>
+        <div id="glycémie" class="property">
+            <div>
+                <img src="../assets/images/mes glycemies.png" />
+                <h2>Ma glycémie</h2>               
+            </div>
+            <div *ngFor="let valeur of determineValueGlycemie()">
+                <span [innerHTML]="valeur"></span><span> g/L</span>
+            </div>
+        </div>
+
+        <div id="poids" class="property">
+            <div>
+                <img src="../assets/images/balance-de-pesee.png" />
+                <h2>Mon poids</h2>              
+            </div>
+            <div *ngFor="let valeur of historiquePoids">
+                <span [innerHTML]="valeur"></span><span> kg</span>
+            </div>
+        </div>
+
+        <div id="activite" class="property">
+            <div>
+                <img src="../assets/images/gymnastique.png" />
+                <h2>Mes activités physiques</h2>             
+            </div>
+            <div *ngFor="let valeur of determineValueActivite()">
+                <span [innerHTML]="valeur"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="ajout">
+        <button class="button" type="button">Ajouter des paramètres</button>
+    </div>
+
+
 </div>
