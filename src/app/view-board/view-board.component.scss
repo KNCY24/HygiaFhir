@@ -6,7 +6,7 @@ $light:#7a8183;
 
 .content {
     display: flex;
-    margin: 52px auto 25px;
+    margin: 100px auto 25px;
     padding: 0 16px 50px;
     flex-direction: column;
     align-items: center;
@@ -15,7 +15,7 @@ $light:#7a8183;
         font-size: 50px;
     }
     .menu{
-        margin-top:5%;
+        margin-top:2%;
         display: grid;
         grid-template-areas: 
         'profil parameter medication questionnaire';
