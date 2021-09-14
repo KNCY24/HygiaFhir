@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Questionnaire } from '../KREMS';
+import { RestserviceService } from '../restservice.service';
 
 @Component({
   selector: 'app-view-questionnaire',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewQuestionnaireComponent implements OnInit {
 
-  constructor() { }
+  Questionnaire:Questionnaire=new Questionnaire();
+
+  constructor(private service:RestserviceService) {
+    service.getQuestionnaire().subscribe(
+      data => {
+        this.Questionnaire=this.Questionnaire;
+      })
+   }
 
   ngOnInit(): void {
   }

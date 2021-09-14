@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { Medication } from './KREMS';
+import { Medication,Patient,Questionnaire } from './KREMS';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +28,13 @@ export class RestserviceService {
     return this.http.get<Medication>(this.server+"medication")
   }
 
+  getQuestionnaire():Observable<Questionnaire> {
+    return this.http.get<Questionnaire>(this.server+"Questionnaire")
+  }
+
+  getPatient():Observable<Patient>{
+    return this.http.get<Patient>(this.server+"patient/613f4631a5b46400122cf50c")
+  }
   
 
 }
