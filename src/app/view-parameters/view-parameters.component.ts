@@ -12,55 +12,51 @@ export class ViewParametersComponent implements OnInit {
   parameters : Parameters = new Parameters();
   parameter : Parameter = new Parameter();
   server : string;
-  historiqueGlycemie : number[]=[];
-  historiquePoids : number[]=[];
-  historiqueActivite : string[]=[];
+  historiqueGlycemie : Parameter[]=[];
+  historiquePoids : Parameter[]=[];
+  historiqueActivite : Parameter[]=[];
 
   constructor(private service: RestserviceService) {
     this.server = service.getServer;  
     service.getParameters().subscribe(
       data => {
         this.parameters=data;
+        this.determineValueGlycemie();
+        this.determineValuePoids();
+        this.determineValueActivite();
       }
-    )
+    );
+
+    
   }
 
   ngOnInit(): void {
   }
 
-  determineValueGlycemie() : number[] {
-
-    console.log("pourquoi")
-    console.log(this.parameters.parameter.length);
+  determineValueGlycemie() : Parameter[] {
     for (let i = 0; i < this.parameters.parameter.length; i++){
-      console.log("for");
       if (this.parameters.parameter[i].name=="glycémie"){
-        this.historiqueGlycemie.push(this.parameters.parameter[i].valueDecimal);
-        console.log("passer")
+        this.historiqueGlycemie.push(this.parameters.parameter[i]);
       } 
     }
-    console.log(this.historiqueGlycemie);
     return this.historiqueGlycemie;
   } 
 
-  determineValuePoids() : number[] {
+  determineValuePoids() : Parameter[] {
 
     for (let i = 0; i < this.parameters.parameter.length; i++){
       if (this.parameters.parameter[i].name=="poids"){
-        console.log(this.parameters.parameter.length);
-        console.log(this.parameters.parameter[i].name);
-        console.log(i);
-        this.historiquePoids.push(this.parameters.parameter[i].valueDecimal);
+        this.historiquePoids.push(this.parameters.parameter[i]);
       } 
     }
     return this.historiquePoids;
   }
 
-  determineValueActivite() : string[] {
+  determineValueActivite() : Parameter[] {
 
     for (let i = 0; i < this.parameters.parameter.length; i++){
       if (this.parameters.parameter[i].name=="activite"){
-        this.historiqueActivite.push(this.parameters.parameter[i].valueString);
+        this.historiqueActivite.push(this.parameters.parameter[i]);
       } 
     }
     return this.historiqueActivite;

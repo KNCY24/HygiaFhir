@@ -244,7 +244,7 @@ export class Parameter{
     valueBoolean : boolean = false;
     valueCanonical : string = "";
     valueCode : string = "";
-    valueDate : Date = new Date();
+    valueDate : string="";
     valueDateTime : Date = new Date();
     valueDecimal : number = 0;
     valueId : string = "";
