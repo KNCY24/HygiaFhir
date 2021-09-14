@@ -4,26 +4,26 @@
 
     <div class="menu">
         <a routerLink="/profil">
-            <div id="profil">
+            <div class="card" id="profil">
                 <span>Mon profil</span>
                 <img src="assets/images/profil.png" alt=profil/>
             </div>
         </a>
         <a routerLink="/parameters">
-            <div  id="parameter">
+            <div class="card" id="parameter">
                 <span>Paramètres</span>
                 <img src="assets/images/lecteur-de-glycemie.png" alt=parameters/>
             </div>
         </a>
         <a routerLink="/rappels">
-            <div id="rappel">
+            <div class="card" id="rappel">
                 <span>Mes rappels</span>
                 <img src="assets/images/rappel.png" alt=appointment/>
             </div>
         </a>
         <a routerLink="/questionnaire">
-            <div id="questionnaire">
-                <span>Questionnaire</span>
+            <div class="card" id="questionnaire">
+                <span [matBadge]="nbQuestionnaire" [matBadgeHidden]="hidden" matBadgePosition="before" >Questionnaire</span>
                 <img src="assets/images/nous-faire-parvenir.png" alt=questionnaire/>
             </div>
         </a>

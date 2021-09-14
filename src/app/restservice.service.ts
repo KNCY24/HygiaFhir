@@ -49,4 +49,11 @@ export class RestserviceService {
     return this.http.get<Parameters>(this.server+"parameters/6140a8b7a5b46400122cf528")
   }
 
+  getResponse():Observable<QuestionnaireResponse>{
+    return this.http.get<QuestionnaireResponse>(this.server+"questionnaire-response")
+  }
+  deleteResponse(idresponse:String):Observable<QuestionnaireResponse>{
+    return this.http.delete<QuestionnaireResponse>(this.server+"questionnaire-response/"+idresponse)
+  }
+
 }

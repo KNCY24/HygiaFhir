@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class ViewQuestionnaireComponent implements OnInit {
 
   tabcontent:any= new TabContent();
+  //t:any=new TabContent();
   isQuestionnaire:boolean=true;
   questionnaire:Questionnaire=new Questionnaire();
   questionnaireResponse:QuestionnaireResponse=new QuestionnaireResponse();
@@ -32,6 +33,19 @@ export class ViewQuestionnaireComponent implements OnInit {
           this.isQuestionnaire=false
         }
       })
+      //effacer reponse test
+      /*service.getResponse().subscribe(
+        data =>{
+          this.t=data
+          for(let questionnaire of this.t){
+            service.deleteResponse(questionnaire.id).subscribe(
+              data=>{
+
+              }
+            )
+          }
+        }
+      )*/
    }
 
   ngOnInit(): void {

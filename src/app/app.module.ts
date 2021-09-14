@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import {MatBadgeModule} from '@angular/material/badge';
 
 import { AppComponent } from './app.component';
 import { AddAdministrationComponent } from './add-administration/add-administration.component';
@@ -47,6 +48,7 @@ const appRoutes : Routes = [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
+    MatBadgeModule,
     RouterModule.forRoot(appRoutes)
   ],
   exports: [RouterModule],
