@@ -234,7 +234,7 @@ export class Link{
 }
 
 export class Parameters{
-    resourceType="Parameters";
+    resourceType : string="Parameters";
     parameter : Parameter[]=[];
 }
 
