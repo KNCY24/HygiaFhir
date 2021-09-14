@@ -443,9 +443,13 @@ export class Metadata{
     tag : Coding[]=[];
 }
 
+export class TabContent{
+    tab:Questionnaire[]=[];
+}
 
 export class Questionnaire {
     //hellooooooo
+    id:string="";
     resourceType: string="Questionnaire";
     url: string="";
     identifier:Identifier[]=[];
@@ -540,7 +544,7 @@ export class QuestionnaireResponse {
     identifier :  string ="" ; // Unique id for this set of answers
     basedOn :  string[]=[]; //Reference(CarePlan|ServiceRequest) ; // Request fulfilled by this QuestionnaireResponse
     partOf :  string[]=[]; //Reference(Observation|Procedure) ; // Part of this action
-    //questionnaire :  canonical(Questionnaire) ; // Form being answered
+    questionnaire :  string="" ; // Form being answered
     status : string =""; // R!  in-progress | completed | amended | entered-in-error | stopped
     subject :  string = ""; //Reference(Any) ; // The subject of the questions
     encounter :  string = ""; //Reference(Encounter) ; // Encounter created as part of
@@ -556,17 +560,8 @@ export class ItemR{
     answer : Answer[]=[];
 }
 export class  Answer{
-    valueBoolean: boolean = true;
+    valueBoolean: boolean = false;
     valueDecimal : number =0;
     valueInteger : number =0;
-    valueDate: Date =new Date();
-    valueDateTime: Date =new Date();
-    valueTime: Date =new Date();
     valueString: string ="";
-    valueUri : string ="";
-    valueAttachment : Attachment=new Attachment ();
-    valueCoding :  Coding=new Coding();
-    valueQuantity : number =0;
-    valueReference :  string = ""; //Reference(Any) 
-    //item :  Content as for QuestionnaireResponseitem
 }

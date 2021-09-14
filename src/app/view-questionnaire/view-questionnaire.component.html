@@ -1,7 +1,24 @@
 <app-view-toolbar></app-view-toolbar>
-<p>view-questionnaire works!</p>
+<div class="content">
+    <h1>
+        <img src="assets/images/nous-faire-parvenir.png" alt=questionnaire/>
+        Compléter le questionnaire
+    </h1>
 
-<p>
-    {{Questionnaire.resourceType}}
-    <br> {{Questionnaire.version}}
-</p>
+    <div class="questionnaire">
+        <ng-container *ngIf="isQuestionnaire==true">
+            <form >
+                <div class="question" *ngFor="let item of questionnaire.item">
+                    <span name="text">{{item.text}}</span>
+                    <textarea name="answer"></textarea>
+                </div>
+            </form>
+            <button (click)=onSubmit()>Envoyer</button>
+
+        </ng-container>
+        <div class="noquestion" *ngIf='isQuestionnaire==false'>
+            Aucun questionnaire disponible pour l'instant !
+        </div>
+    </div>
+</div>
+
