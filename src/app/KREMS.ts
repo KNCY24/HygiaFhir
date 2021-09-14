@@ -1,4 +1,3 @@
-
 import { Byte } from "@angular/compiler/src/util";
 import { Scheduler } from "rxjs";
 
@@ -114,7 +113,7 @@ export class Patient {
     maritalStatus : CodeableConcept = new CodeableConcept();
     multipleBirthBoolean : boolean = false;
     multipleBirthInteger : number = 0;
-    photo : Attachement[]=[];
+    photo : Attachment[]=[];
     contact : Contact[]=[];
     communication : Communication[]=[];
     generalPractitioner: Organization = new Organization();
@@ -156,7 +155,7 @@ export class Coding{
     userSelected : boolean = false;
 }
 
-export class Attachement{
+export class Attachment{
     contentType : string = "";
     language : string = "";
     data : Byte = 0;
@@ -263,7 +262,7 @@ export class Parameter{
     valueAddress : Address = new Address();
     valueAge : number = 0; //Age
     valueAnnotation : Annotation = new Annotation();
-    valueAttachement : Attachement = new Attachement();
+    valueAttachment : Attachment = new Attachment();
     valueCodeableConcept : CodeableConcept = new CodeableConcept();
     valueCoding : Coding = new Coding();
     valueContactPoint : ContactPoint = new ContactPoint();
@@ -365,11 +364,6 @@ export class Repeat{
     offset : number = 0;
 }
 
-export class ContactDetail{
-    name : string = "";
-    telecom : ContactPoint[]=[];
-}
-
 export class Contributor{
     type : string = "";
     name : string = "";
@@ -411,7 +405,7 @@ export class RelatedArtifact{
    label : string = "";
    display : string = "";
    citation : string = "";
-   document : Attachement = new Attachement();
+   document : Attachment = new Attachment();
    resource : any; 
 }
 
@@ -441,4 +435,133 @@ export class Resource{
 
 export class Metadata{
 
+}
+
+
+export class Questionnaire {
+    //hellooooooo
+    ressourceType: string="Questionnaire";
+    url: string="";
+    identifier:Identifier[]=[];
+    version: string="";
+    name: string="";
+    title: string="";
+    //"derivedFrom" 
+    status: string="";
+    experimental:boolean = true;
+    subjectType:string[]=[];
+    date: Date =new Date();
+    publisher: string="";
+    contact: ContactDetail[]=[];
+    description: string = "";
+    useContext: UsageContext[]=[];
+    jurisdiction: CodeableConcept[]=[];
+    purpose: string="";
+    copyright: string="";
+    approvalDate: Date =new Date();
+    lastReviewDate: Date =new Date();
+    effectivePeriod: Period= new Period();
+    code: Coding[]=[];
+    item: Item[]=[];
+    enableBehavior: string="";
+    required: boolean = true;
+    repeats: boolean = true;
+    readOnly: boolean = true;
+    maxLength: number=0;
+    //answerValueSet: 
+    answerOption: AnswerOption[]=[];
+    initial: Initial[]=[];
+
+}
+
+export class ContactDetail{
+    name: string="";
+    telecom: ContactPoint[]=[];
+}
+
+export class Item{
+    linkId : string="";
+    definition : string="";
+    code : Coding[]=[];
+    prefix : string="";
+    text : string="";
+    type : string="";
+    enableWhen: EnableWhen[]=[];
+}
+export class EnableWhen{
+    question : string="";
+    operator : string="";
+    answerBoolean : boolean = true;
+    answerDecimal : number=0;
+    answerInteger : number=0;
+    answerDate : Date =new Date();
+    answerDateTime : Date =new Date();
+    answerTime : Date =new Date();
+    answerString :string="";
+    answerCoding : Coding=new Coding();
+    answerQuantity : number=0;
+      //answerReference : { Reference(Any)
+}
+export class AnswerOption{
+    valueInteger : number=0;
+    valueDate : Date =new Date();
+    valueTime : Date =new Date();
+    valueString : string="";
+    valueCoding : Coding=new Coding();
+    //valueReference : { Reference(Any) };
+    initialSelected : boolean = true;
+}
+
+export class Initial{
+    valueBoolean : boolean = true;
+    valueDecimal :  number=0;
+    valueInteger : number=0;
+    valueDate : Date =new Date();
+    valueDateTime : Date =new Date();
+    valueTime : Date =new Date();
+    valueString : string="";
+    valueUri : string="";
+    valueAttachment : Attachment =new Attachment ();
+    valueCoding : Coding=new Coding();
+    valueQuantity : number=0;
+    //valueReference : { Reference(Any)
+}
+
+export class QuestionnaireResponse {
+    resourceType : string="QuestionnaireResponse";
+    // from Resource: id; meta; implicitRules; and language
+    // from DomainResource: text; contained; extension; and modifierExtension
+    identifier :  string ="" ; // Unique id for this set of answers
+    //basedOn :  Reference(CarePlan|ServiceRequest) ; // Request fulfilled by this QuestionnaireResponse
+    //partOf :  Reference(Observation|Procedure) ; // Part of this action
+    //questionnaire :  canonical(Questionnaire) ; // Form being answered
+    status : string =""; // R!  in-progress | completed | amended | entered-in-error | stopped
+    //subject :  Reference(Any) ; // The subject of the questions
+    //encounter :  Reference(Encounter) ; // Encounter created as part of
+    authored :Date =new Date(); // Date =new Date() the answers were gathered
+    // author :  Reference(Device|Practitioner|PractitionerRole|Patient|
+    // RelatedPerson|Organization) ; // Person who received and recorded the answers
+    //source :  Reference(Patient|Practitioner|PractitionerRole|RelatedPerson) ; // The person who answered the questions
+    item :ItemR[]=[];
+}
+export class ItemR{
+    linkId : string ="";
+    definition : string =""; 
+    text : string ="";
+    answer : Answer[]=[];
+}
+export class  Answer{
+    valueBoolean: boolean = true;
+    valueDecimal : number =0;
+    valueInteger : number =0;
+    valueDate: Date =new Date();
+    valueDateTime: Date =new Date();
+    valueTime: Date =new Date();
+    valueString: string ="";
+    valueUri : string ="";
+    valueAttachment : Attachment=new Attachment ();
+    valueCoding :  Coding=new Coding();
+    valueQuantity : number =0;
+    //valueReference :  Reference(Any) ;
+    //item :  Content as for QuestionnaireResponseitem
 }
