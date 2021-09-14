@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Medication,Patient } from '../KREMS';
+import { HumanName, Medication,Patient } from '../KREMS';
 import { RestserviceService } from '../restservice.service';
 
 @Component({
@@ -24,6 +24,23 @@ export class ViewBoardComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  getGender(gender:String){
+    if(gender=="male"){
+      return "monsieur"
+    }else{
+      return "madame"
+    }
+  }
+
+  getOfficialName(name:HumanName[]){
+    for(let i=0;i<name.length;i++){
+      if(name[i].use=="official"){
+        return name[i].family
+      }
+    }
+    return name[0].family
   }
 
 }

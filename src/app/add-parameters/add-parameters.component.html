@@ -1,8 +1,17 @@
-<app-view-toolbar></app-view-toolbar>
-<h1>Mes paramètres</h1>
+<h1>Ajouter des paramètres</h1>
+
 <h2>Ma glycémie</h2>
-<span id="blood-sugar-level">{{parameter.valueDecimal}}</span>
+
+<input type="text" name="glycémie" id="input-blood-sugar-level">
+<button type="button" class=button-submit id="button-blood-sugar-level">Envoyer</button>
+
 <h2>Mon poids</h2>
-<span id="weight">{{parameter.valueDecimal}}</span>
+
+<input type="text" name="poids" id="input-weight">
+<button type="button" class=button-submit id="button-weight">Envoyer</button> 
+
 <h2>Mes activités physiques</h2>
+
+<input type="text" name="activites" id="input-physical-activity">
 <span id="physical-activity">{{parameter.valueString}}</span>
+<button type="button" class=button-submit id="button-physical-activity">Envoyer</button> 

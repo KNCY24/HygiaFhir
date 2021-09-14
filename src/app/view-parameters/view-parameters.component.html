@@ -1,2 +1,17 @@
-<app-view-toolbar></app-view-toolbar>
-<p>view-parameters works!</p>
+<h1>Mes paramètres</h1>
+
+<div>
+    <h2>Ma glycémie</h2>
+    <span [innerHTML]="determineValueGlycemie()"></span>
+    <span>g/L</span> 
+</div>
+
+<div>
+    <h2>Mon poids</h2>
+    <span [innerHTML]="determineValuePoids()"></span>
+    <span>kg</span> 
+</div>
+
+<div>
+    <h2>Mes activités physiques</h2>
+</div>
