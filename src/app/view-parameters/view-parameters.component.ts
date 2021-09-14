@@ -12,6 +12,9 @@ export class ViewParametersComponent implements OnInit {
   parameters : Parameters = new Parameters();
   parameter : Parameter = new Parameter();
   server : string;
+  historiqueGlycemie : number[]=[];
+  historiquePoids : number[]=[];
+  historiqueActivite : string[]=[];
 
   constructor(private service: RestserviceService) {
     this.server = service.getServer;  
@@ -20,35 +23,47 @@ export class ViewParametersComponent implements OnInit {
         this.parameters=data;
       }
     )
-
   }
 
   ngOnInit(): void {
   }
 
-  determineValueGlycemie() : number {
+  determineValueGlycemie() : number[] {
 
-    this.parameter.valueDecimal=0;
-
+    console.log("pourquoi")
+    console.log(this.parameters.parameter.length);
     for (let i = 0; i < this.parameters.parameter.length; i++){
+      console.log("for");
       if (this.parameters.parameter[i].name=="glycémie"){
-        this.parameter.valueDecimal = this.parameters.parameter[i].valueDecimal;
+        this.historiqueGlycemie.push(this.parameters.parameter[i].valueDecimal);
+        console.log("passer")
       } 
     }
-    return this.parameter.valueDecimal;
-
+    console.log(this.historiqueGlycemie);
+    return this.historiqueGlycemie;
   } 
 
-  determineValuePoids() : number {
+  determineValuePoids() : number[] {
 
-    this.parameter.valueDecimal=0;
-    
     for (let i = 0; i < this.parameters.parameter.length; i++){
       if (this.parameters.parameter[i].name=="poids"){
-        this.parameter.valueDecimal = this.parameters.parameter[i].valueDecimal;
+        console.log(this.parameters.parameter.length);
+        console.log(this.parameters.parameter[i].name);
+        console.log(i);
+        this.historiquePoids.push(this.parameters.parameter[i].valueDecimal);
       } 
     }
-    return this.parameter.valueDecimal;
+    return this.historiquePoids;
+  }
+
+  determineValueActivite() : string[] {
+
+    for (let i = 0; i < this.parameters.parameter.length; i++){
+      if (this.parameters.parameter[i].name=="activite"){
+        this.historiqueActivite.push(this.parameters.parameter[i].valueString);
+      } 
+    }
+    return this.historiqueActivite;
   }
 
 }
