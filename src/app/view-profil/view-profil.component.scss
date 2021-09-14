@@ -10,19 +10,36 @@ $blue:#4169e1;
         grid-template-areas: 
         'gauche droite';
         grid-template-columns: 50% 50%;
-        grid-gap:50px;
-        div{
-                background-color: #ffffff;
-                width: 200px;
-                height: 100%;
-                padding: 10px;
-                border: 1px ridge $blue;
+        grid-gap:150px;
+        div{  
+            
+                img{
+                    margin-top:-20%;
+                    margin-left:30%;
+                    width: 150px;
+                }
+                span{
+                    display: flex; 
+                    justify-content: center; 
+                    font-size: 17px;
+                    font-weight: bold;
+                }
                 &#gauche {
+                    background-color: #ffffff;
+                    width: 400px;
+                    height: 100%;
+                    padding: 10px;
+                    border: 1px ridge $blue;
                     grid-area: gauche;
 
                 }
    
                 &#droite {
+                    background-color: #ffffff;
+                    width: 400px;
+                    height: 100%;
+                    padding: 10px;
+                    border: 1px ridge $blue;
                     grid-area: droite;
                     
                 }

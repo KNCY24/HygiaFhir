@@ -1,8 +1,12 @@
+<app-view-toolbar></app-view-toolbar>
     <!--Contenu Page-->
     <div class="content">
         <div class="identite">
         <!--Bandeau Gauche-->
             <div id="gauche">
+
+                <img src="assets/images/carte-d_identite.png" alt=carteDI/>
+                <span>identité</span>
                 <p> <label>nom: {{getOfficialFamilyName(patient.name)}} </label> </p>
                 <p> <label>prenom: {{getOfficialGivenName(patient.name)}} </label></p>
                 <p><label>Date de naissance: {{patient.birthDate}} </label></p>
@@ -10,6 +14,8 @@
   
         <!--Droite-->
             <div id="droite">
+                <img src="assets/images/carnet-d_adresses.png" alt=carnetDA/>
+                <span>coordonnées</span>
                 <p><label>Adresse:  {{getAddress(patient.address)}}</label></p>
                 <p><label>E-mail: {{getEmail(patient.telecom)}}</label></p>
                 <p><label>Telephone: {{getTelephone(patient.telecom)}}</label></p>
