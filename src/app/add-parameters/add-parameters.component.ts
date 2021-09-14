@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Parameter } from '../KREMS';
+import { RestserviceService } from '../restservice.service';
 
 
 @Component({
@@ -10,8 +11,11 @@ import { Parameter } from '../KREMS';
 export class AddParametersComponent implements OnInit {
 
   parameter : Parameter = new Parameter();
+  server : string;
 
-  constructor() { }
+  constructor(private service: RestserviceService) {
+    this.server = service.getServer;  
+  }
 
   ngOnInit(): void {
   }

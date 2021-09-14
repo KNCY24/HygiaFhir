@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Medication } from '../KREMS';
+import { Medication,Patient } from '../KREMS';
 import { RestserviceService } from '../restservice.service';
 
 @Component({
@@ -9,12 +9,18 @@ import { RestserviceService } from '../restservice.service';
 })
 export class ViewBoardComponent implements OnInit {
   medication:Medication=new Medication();
+  patient:Patient=new Patient();
 
   constructor(private service:RestserviceService) {
     service.getMedication().subscribe(
       data => {
-        this.medication=this.medication;
+        this.medication=data;
       })
+    service.getPatient().subscribe(
+      data => {
+        this.patient=data;
+      }
+    )
    }
 
   ngOnInit(): void {
