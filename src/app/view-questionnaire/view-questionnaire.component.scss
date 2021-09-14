@@ -1,6 +1,7 @@
 $blue:#4169E1;
 $blue-light:#abbff8;
 $light:#7a8183;
+$blue-night:#233B6E;
 
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
@@ -27,22 +28,47 @@ $light:#7a8183;
         border-radius: 15px;
         margin-top:4.5%;
         border: 1px solid $blue;
-        padding:20px 40px 50px;
+        padding:20px 40px 40px;
         width: 65%;
-        div{
+        div.question{
             margin-top:30px;
             span{
                 display: block;
                 font-weight: 600;
-                margin-bottom: 5px;
+                margin-top: 10px;
             }
             textarea{
+                border-radius: 5px;
+                border-color: $blue;
                 width: 99%;
                 max-width: 99%;
                 min-height: 30px;
             }
         }
-        
+        div.noquestion{
+            font-weight: 500;
+            padding-top:25px;
+            text-align: center;
+            width: 100%;
+        }
+        button{
+            border-radius: 5px;
+            margin:35px 5px auto auto;
+            position: relative;
+            float:right;
+            font-weight: 600;
+            padding:12px 40px;
+            color:white;
+            border:0.5px solid $blue-night;
+            background-color: $blue-night;
+            &:hover{
+                cursor:pointer;
+                border:0.5px solid $blue;
+                background-color: $blue;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+            }
+        }
         
     }
 }

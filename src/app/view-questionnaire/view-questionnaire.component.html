@@ -6,9 +6,18 @@
     </h1>
 
     <div class="questionnaire">
-        <div *ngFor="let i of [0,1,2,3,4]">
-            <span>Actuellement, avez-vous un traitement pour votre diabète avec insuline ?</span>
-            <textarea></textarea>
+        <ng-container *ngIf="isQuestionnaire==true">
+            <form >
+                <div class="question" *ngFor="let item of questionnaire.item">
+                    <span name="text">{{item.text}}</span>
+                    <textarea name="answer"></textarea>
+                </div>
+            </form>
+            <button (click)=onSubmit()>Envoyer</button>
+
+        </ng-container>
+        <div class="noquestion" *ngIf='isQuestionnaire==false'>
+            Aucun questionnaire disponible pour l'instant !
         </div>
     </div>
 </div>

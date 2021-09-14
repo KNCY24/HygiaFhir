@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { Medication,Patient,Questionnaire,Parameters} from './KREMS';
+import { Medication,Patient,Questionnaire,Parameters, TabContent, QuestionnaireResponse} from './KREMS';
+import { AppComponent } from './app.component';
 
 @Injectable({
   providedIn: 'root'
@@ -28,8 +29,16 @@ export class RestserviceService {
     return this.http.get<Medication>(this.server+"medication")
   }
 
-  getQuestionnaire():Observable<Questionnaire> {
-    return this.http.get<Questionnaire>(this.server+"questionnaire")
+  getQuestionnaire():Observable<TabContent> {
+    return this.http.get<TabContent>(this.server+"questionnaire")
+  }
+
+  validQuestionnaire(idquestionnaire:String,questionnaire:Questionnaire):Observable<Questionnaire>{
+    return this.http.put<Questionnaire>(this.server+"questionnaire/"+idquestionnaire,questionnaire)
+  }
+
+  postQuestionnaireResponse(response:QuestionnaireResponse):Observable<QuestionnaireResponse>{
+    return this.http.post<QuestionnaireResponse>(this.server+"questionnaire-response",response)
   }
 
   getPatient():Observable<Patient>{
