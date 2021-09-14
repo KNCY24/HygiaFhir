@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Medication } from '../KREMS';
+import { RestserviceService } from '../restservice.service';
 
 @Component({
   selector: 'app-view-board',
@@ -6,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-board.component.scss']
 })
 export class ViewBoardComponent implements OnInit {
+  medication:Medication=new Medication();
 
-  constructor() { }
+  constructor(private service:RestserviceService) {
+    service.getMedication().subscribe(
+      data => {
+        this.medication=this.medication;
+      })
+   }
 
   ngOnInit(): void {
   }
