@@ -194,7 +194,7 @@ export class Organization{
     alias : string[]=[];
     telecom : ContactPoint[]=[];
     address : Address[]=[];
-    partOf : Organization = new Organization(); //Reference(Organazation)
+    //partOf : Organization = new Organization(); //Reference(Organazation)
     contact : ContactAutre = new ContactAutre();
     endpoint : Endpoint[]=[]; //Reference(Endpoint)
 }

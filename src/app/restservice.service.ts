@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { Medication } from './KREMS';
+import { Medication,Patient } from './KREMS';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestserviceService {
-  server : string="https://fhir.eole-consulting.io/"
+  server : string="https://fhir.eole-consulting.io/api/"
 
   constructor(private http:HttpClient) { }
 
@@ -17,9 +17,12 @@ export class RestserviceService {
   }
 
   getMedication():Observable<Medication> {
-    return this.http.get<Medication>(this.server+"get/medication")
+    return this.http.get<Medication>(this.server+"medication")
   }
 
+  getPatient():Observable<Patient>{
+    return this.http.get<Patient>(this.server+"patient/613f4631a5b46400122cf50c")
+  }
   
 
 }
