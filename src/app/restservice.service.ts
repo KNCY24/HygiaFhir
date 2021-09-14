@@ -29,7 +29,7 @@ export class RestserviceService {
   }
 
   getQuestionnaire():Observable<Questionnaire> {
-    return this.http.get<Questionnaire>(this.server+"Questionnaire")
+    return this.http.get<Questionnaire>(this.server+"questionnaire")
   }
 
   getPatient():Observable<Patient>{
@@ -37,7 +37,7 @@ export class RestserviceService {
   }
   
   getParameters():Observable<Parameters>{
-    return this.http.get<Parameters>(this.server+"Parameters/6140a8b7a5b46400122cf528")
+    return this.http.get<Parameters>(this.server+"parameters/6140a8b7a5b46400122cf528")
   }
 
 }
