@@ -50,8 +50,7 @@ const appRoutes : Routes = [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes),
-    BrowserAnimationsModule
+    RouterModule.forRoot(appRoutes)
   ],
   exports: [RouterModule],
   providers: [],
