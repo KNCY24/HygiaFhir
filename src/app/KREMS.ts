@@ -1,5 +1,5 @@
 import { Byte } from "@angular/compiler/src/util";
-import { Scheduler } from "rxjs";
+
 
 export class Medication {
     resourceType:string="Medication";
@@ -248,13 +248,13 @@ export class Parameter{
     valueDateTime : Date = new Date();
     valueDecimal : number = 0;
     valueId : string = "";
-    //valueInstant : Time = new Time();
+    valueInstant : Date = new Date();
     valueInterger : number = 0;
     valueMarkdown : string = ""; //markdown
     valueOid : string = ""; //oid
     valuePositiveInt : number = 0;
     valueString : string = "";
-    //valueTime : Time = new TimeRanges();
+    valueTime : Date = new Date();
     valueUnsignedInt : number = 0;
     valueUri : string = ""; //uri
     valueUrl : string = ""; //url
@@ -330,9 +330,9 @@ export class SampledData{
 
 export class Signature{
     type : Coding[]=[];
-    //when : Time = TimeRanges();
-    //who : 
-    //onBehalfOf : 
+    when : Date = new Date();
+    who : any; //Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization
+    onBehalfOf : any; //Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization
     targetFormat : string = "";
     sigFormat : string = "";
     data : Byte = 0;
@@ -359,7 +359,7 @@ export class Repeat{
     periodMax : number = 0;
     periodUnit : number = 0;
     dayOfWeek : string[]=[];
-    timeOfDay : Date[]=[]; //Time
+    timeOfDay : Date[]=[]; 
     when : string[]=[];
     offset : number = 0;
 }
@@ -430,11 +430,17 @@ export class UsageContext{
 }
 
 export class Resource{
-
+    id : string = "";
+    meta : Metadata = new Metadata();
 }
 
 export class Metadata{
-
+    versionId : string = "";
+    lastUpdated : Date = new Date();
+    source : string = "";
+    //profile : StructureDefinition[]=[];
+    security : Coding[]=[];
+    tag : Coding[]=[];
 }
 
 
