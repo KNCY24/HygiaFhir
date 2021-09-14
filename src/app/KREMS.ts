@@ -158,7 +158,7 @@ export class Coding{
 export class Attachement{
     contentType : string = "";
     language : string = "";
-    date : Byte = 0;
+    data : Byte = 0;
     url : string = "";
     size : number = 0;
     hash : Byte = 0;
