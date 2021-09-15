@@ -570,3 +570,158 @@ export class  Answer{
     valueReference :  string = ""; //Reference(Any) 
     //item :  Content as for QuestionnaireResponseitem
 }
+export class Task{
+    resourceType : string="Task";
+     // from Resource: id; meta; implicitRules; and language
+     // from DomainResource: text; contained; extension; and modifierExtension
+     identifier :  Identifier[] = [] // Task Instance Identifier
+     //instantiatesCanonical : { canonical(ActivityDefinition) }; // Formal definition of task
+     instantiatesUri : string=""; // Formal definition of task
+     //basedOn : [{ Reference(Any) }]; // Request fulfilled by this task
+     groupIdentifier :  Identifier = new Identifier(); // Requisition or grouper id
+     //partOf : [{ Reference(Task) }]; // Composite task
+     status : string=""; // R!  draft | requested | received | accepted | +
+     statusReason : CodeableConcept = new CodeableConcept(); // Reason for current status
+     businessStatus : CodeableConcept = new CodeableConcept(); // E.g. Specimen collected; IV prepped
+     intent : string=""; // R!  unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option
+     priority : string=""; // routine | urgent | asap | stat
+     code : CodeableConcept = new CodeableConcept(); // Task Type
+     description : string=""; // Human-readable explanation of task
+     //focus : { Reference(Any) }; // What task is acting on
+     //for : { Reference(Any) }; // Beneficiary of the Task
+     //encounter : { Reference(Encounter) }; // Healthcare event d: string=""ng which this task originated
+     executionPeriod : Period = new Period(); // Start and end time of execution
+     authoredOn : Date = new Date();// C? Task Creation Date
+     lastModified : Date = new Date(); // C? Task Last Modified Date
+     //requester : { Reference(Device|Organization|Patient|Practitioner|
+      //PractitionerRole|RelatedPerson) }; // Who is asking for task to be done
+     performerType : CodeableConcept[] = []; // Requested performer
+     //owner : { Reference(Practitioner|PractitionerRole|Organization|CareTeam|
+      //HealthcareService|Patient|Device|RelatedPerson) }; // Responsible individual
+     //location : { Reference(Location) }; // Where task occurs
+     reasonCode : CodeableConcept = new CodeableConcept();// Why task is needed
+     //reasonReference : { Reference(Any) }; // Why task is needed
+     //insurance : [{ Reference(Coverage|ClaimResponse) }]; // Associated insurance coverage
+     note :  Annotation[]=[]; // Comments made about the task
+     //relevantHistory : [{ Reference(Provenance) }]; // Key events in history of the Task
+     restriction : Restriction=new Restriction();
+     input : Input[]=[]
+      output : Output[]=[];
+      }
+      
+     export class Restriction{ // Constraints on fulfillment tasks
+       repetitions: number = 0; // How many times to repeat
+       period: Period = new Period();// When fulfillment sought
+       //recipient : [{ Reference(Patient|Practitioner|PractitionerRole|
+       //RelatedPerson|Group|Organization) }] // For whom is fulfillment sought?
+     }
+     
+     export class Input{ // Information used to perform task
+       type : CodeableConcept = new CodeableConcept(); // R!  Label for the input
+       // value[x]: Content to use in performing the task. One of these 50:
+       valueBase64Binary : Byte = 0;
+       valueBoolean : boolean = false;
+       valueCanonical : string = "";
+       valueCode : string="";
+       valueDate : Date = new Date();
+       valueDateTime : Date = new Date();
+       valueDecimal : number = 0;
+       valueId : string = "";
+       valueInstant : Date = new Date();
+       valueInteger : number = 0;
+       valueMarkdown : string="";
+       valueOid : string="";
+       valuePositiveInt : number = 0;
+       valueString : string="";
+       valueTime : Date = new Date();
+       valueUnsignedInt : number = 0;
+       valueUri: string="";
+       valueUrl : string="";
+       valueUuid : string="";
+       valueAddress: Address = new Address();
+       valueAge : number = 0;
+       valueAnnotation : Annotation = new Annotation();
+       valueAttachment : Attachment = new Attachment();
+       valueCodeableConcept: CodeableConcept = new CodeableConcept();
+       valueCoding : Coding = new Coding();
+       valueContactPoint : ContactPoint = new ContactPoint();
+       valueCount : number = 0;
+       valueDistance : number = 0;
+       valueDuration : number = 0;
+       valueHumanName : HumanName = new HumanName();
+       valueIdentifier :  Identifier = new Identifier();
+       valueMoney : Money = new Money;
+       valuePeriod : Period = new Period();
+       valueQuantity : Quantity = new Quantity();
+       valueRange : Range = new Range();
+       valueRatio : Ratio = new Ratio();
+       valueReference : Reference = new Reference();
+       valueSampledData : SampledData = new SampledData();
+       valueSignature : Signature = new Signature();
+       valueTiming : Timing = new Timing();
+       valueContactDetail : ContactDetail = new ContactDetail();
+       valueContributor : Contributor = new Contributor();
+       valueDataRequirement : DataRequirement = new DataRequirement();
+       valueExpression : Expression = new Expression();
+       valueParameterDefinition : ParameterDefinition = new ParameterDefinition();
+       valueRelatedArtifact : RelatedArtifact = new RelatedArtifact();
+       valueTriggerDefinition : TriggerDefinition = new TriggerDefinition();
+       valueUsageContext : UsageContext = new UsageContext();
+       valueDosage : Dosage = new Dosage();
+       valueMeta : Metadata = new Metadata();
+     }
+    
+     export class Output{
+       type : CodeableConcept = new CodeableConcept(); // R!  Label for output
+       // value[x]: Result of output. One of these 50:
+       valueBase64Binary : Byte = 0;
+       valueBoolean : boolean = false;
+       valueCanonical : string = "";
+       valueCode : string="";
+       valueDate : Date = new Date();
+       valueDateTime : Date = new Date();
+       valueDecimal : number = 0;
+       valueId : string = "";
+       valueInstant : Date = new Date();
+       valueInteger : number = 0;
+       valueMarkdown : string="";
+       valueOid : string="";
+       valuePositiveInt : number = 0;
+       valueString : string="";
+       valueTime : Date = new Date();
+       valueUnsignedInt : number = 0;
+       valueUri : string="";
+       valueUrl : string="";
+       valueUuid : string="";
+       valueAddress : Address = new Address();
+       valueAge : number = 0;
+       valueAnnotation : Annotation = new Annotation();
+       valueAttachment : Attachment = new Attachment();
+       valueCodeableConcept : CodeableConcept = new CodeableConcept();
+       valueCoding : Coding = new Coding();
+       valueContactPoint : ContactPoint = new ContactPoint();
+       valueCount :number = 0;
+       valueDistance : number = 0;
+       valueDuration : number = 0;
+       valueHumanName : HumanName = new HumanName();
+       valueIdentifier :  Identifier = new Identifier();
+       valueMoney : Money = new Money;
+       valuePeriod :  Period = new Period();
+       valueQuantity :  Quantity = new Quantity();
+       valueRange : Range = new Range();
+       valueRatio : Ratio = new Ratio();
+       valueReference : Reference = new Reference();
+       valueSampledData : SampledData = new SampledData();
+       valueSignature : Signature = new Signature();
+       valueTiming : Timing = new Timing();
+       valueContactDetail :ContactDetail = new ContactDetail();
+       valueContributor : Contributor = new Contributor();
+       valueDataRequirement : DataRequirement = new DataRequirement();
+       valueExpression : Expression = new Expression();
+       valueParameterDefinition : ParameterDefinition = new ParameterDefinition();
+       valueRelatedArtifact : RelatedArtifact = new RelatedArtifact();
+       valueTriggerDefinition : TriggerDefinition = new TriggerDefinition();
+       valueUsageContext :  UsageContext = new UsageContext();
+       valueDosage : Dosage = new Dosage();
+       valueMeta : Metadata = new Metadata();
+       }

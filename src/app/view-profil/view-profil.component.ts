@@ -47,6 +47,7 @@ export class ViewProfilComponent implements OnInit {
     }
     getEmail(telecom: ContactPoint[]){
       for(let i=0;i<telecom.length;i++){
+        
         if(telecom[i].system=="email"){
           return telecom[i].value
         }
@@ -57,10 +58,11 @@ export class ViewProfilComponent implements OnInit {
       return telecom[0].value
     }
     getTelephone(telecom: ContactPoint[]){
-      for(let i=0;i<telecom.length;i++){
-        console.log(telecom[i].system)
-        if(telecom[i].system=="phone"){
-          return telecom[i].value
+      
+      for(var index in telecom){
+      console.log(index)
+        if(telecom[index].system=="phone"){
+          return telecom[index].value
         }
         else{
           return "-"
@@ -68,21 +70,31 @@ export class ViewProfilComponent implements OnInit {
       }
       return telecom[0].value
     }
-    /*getContactEmergency(contact: Contact[]){
+    getPhoneEmergency(contact: Contact[]){
       for(let i=0;i<contact.length;i++){
-        console.log(contact[i].telecom)
-        for(let f=0;f<prenoms.length;f++){
-          return name[i].given
-        }
-        if(contact[i].system=="phone"){
+        let telecom:ContactPoint[]=contact[i].telecom
+        for(let f=0;f<telecom.length;f++){
+          if(telecom[i].system=="phone"){
           return telecom[i].value
         }
-        else{
-          return "-"
-        }
-      }
-      return telecom[0].value
-    }*/
+      } 
+    }
+    return contact[0].telecom[0].value
+  }
+  getFamilyEmergency(contact: Contact[]){
+    for(let i=0;i<contact.length;i++){
+        return contact[i].name.family
+      
+    }
+    return contact[0].name.family
+  }
+  getGivenEmergency(contact: Contact[]){
+    for(let i=0;i<contact.length;i++){
+      return contact[i].name.given
+    
+    }
+    return contact[0].name.given
+  }
   ngOnInit(): void {
   }
 
