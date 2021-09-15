@@ -49,4 +49,8 @@ export class RestserviceService {
     return this.http.get<Parameters>(this.server+"parameters/6140a8b7a5b46400122cf528")
   }
 
+  putParameters(response:Parameters):Observable<Parameters>{
+    return this.http.put<Parameters>(this.server+"parameters/6140a8b7a5b46400122cf528",response)
+  }
+
 }
