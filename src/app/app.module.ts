@@ -10,6 +10,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {MatMenuModule} from '@angular/material/menu';
 
+import {OrderModule} from 'ngx-order-pipe';
 import { AppComponent } from './app.component';
 import { AddParametersComponent } from './add-parameters/add-parameters.component';
 import { ViewParametersComponent } from './view-parameters/view-parameters.component';
@@ -56,6 +57,7 @@ const appRoutes : Routes = [
     MatBadgeModule,
     MatMenuModule,
     ScrollingModule,
+    OrderModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],

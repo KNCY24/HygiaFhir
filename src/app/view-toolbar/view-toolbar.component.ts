@@ -27,17 +27,16 @@ export class ViewToolbarComponent implements OnInit {
     service.getRappel().subscribe(
       data => {
         this.tabcontent=data;
-        console.log(this.tabcontent)
         var count=0;
         let today = new Date()
-        
+        console.log(today.getTime())
         for(let rappel of this.tabcontent){
-          let date=rappel.executionPeriod.start
-          if(rappel.owner.reference==='613f4631a5b46400122cf50c'){
+          let dateRappel = new Date(rappel.executionPeriod.start)
+          console.log(dateRappel.getTime())
+          if(rappel.owner.reference==='613f4631a5b46400122cf50c' && (dateRappel.getHours()>today.getHours() ||( dateRappel.getHours()==today.getHours() && dateRappel.getMinutes()>=today.getMinutes()))){
             if(rappel.priority=='routine'){
               let days=rappel.note[0].text
               var listdays=days.split(',')
-              const dateT=new Date(date)
               var ret=""
               for(let i=0;i<7;i++){
                 if(listdays[i]=="true"){
@@ -46,26 +45,21 @@ export class ViewToolbarComponent implements OnInit {
                   }else{
                     ret=this.listday[i]
                   }
-
                 }
               }
-              if(ret.includes(today.toLocaleDateString('fr-fr', {  weekday: 'long' }))){
+              if(ret.toLowerCase().includes(today.toLocaleDateString('fr-fr', {  weekday: 'long' }))){
                 this.notifs.push(rappel)
                 count=count+1;
-                
               }
             }
             if(rappel.priority=='urgent'){
-            let DateNotif= new Date(date);
-            if(DateNotif.toLocaleDateString()==today.toLocaleDateString() ){
-              this.notifs.push(rappel)
-              count=count+1;
-              
+              if(dateRappel.toLocaleDateString()==today.toLocaleDateString() ){
+                this.notifs.push(rappel)
+                count=count+1;
+              }
             }
           }
         }
-        }
-        console.log(count)
         this.nbRappels=count;
       })
    }
