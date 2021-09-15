@@ -6,6 +6,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatChipsModule} from '@angular/material/chips';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 import { AppComponent } from './app.component';
 import { AddParametersComponent } from './add-parameters/add-parameters.component';
@@ -51,6 +52,7 @@ const appRoutes : Routes = [
     AppRoutingModule,
     MatChipsModule,
     MatBadgeModule,
+    ScrollingModule,
     RouterModule.forRoot(appRoutes)
   ],
   exports: [RouterModule],

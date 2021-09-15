@@ -1,6 +1,7 @@
 $blue:#4169E1;
 $blue-light:#abbff8;
-$light:#7a8183;
+$light:#ecf2f3;
+$blue-night:#233B6E;
 
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
@@ -20,7 +21,7 @@ $light:#7a8183;
         font-size: 50px;
     }
     .menu{
-        margin-top:8%;
+        margin-top:7%;
         display: grid;
         grid-template-areas: 
         'glycémie poids activite';
@@ -38,12 +39,9 @@ $light:#7a8183;
                 font-weight: bold;
             }
             img{
-                display : block;
-                position : relative;
-                margin-left: auto;
-                margin-right: auto;
                 width: 80px;
-                bottom : 50px;
+                margin-right: auto;
+                margin-left: auto;
             }
             h2{
                 position : relative;
@@ -59,6 +57,11 @@ $light:#7a8183;
             }
             &#activite{
                 grid-area: activite;
+                select{
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
             }
 
             input{
@@ -70,7 +73,7 @@ $light:#7a8183;
                 min-height: 30px;
             }
 
-            #id-activite{
+            #activity{
                 margin-top:30px;
                 border-radius: 5px;
                 border-color: $blue;
@@ -79,24 +82,34 @@ $light:#7a8183;
                 max-width: 99%;
                 min-height: 30px; 
             }
+            .image{
+                border: 1px solid black;
+                border-radius: 50%;
+                width:140px;
+                height:140px;
+                box-shadow: 5px 5px 2px #aaa; 
+                display: flex;
+                align-items: center;
+                text-align: center;
+            }
         }
     }
 
     
     button{
-        border: 1px solid $blue;
-        width: 250px;
-        height: 30px;
+        border: 1px solid $blue-night;
+        background-color: $blue-night;
+        color : white;
         margin-top: 20px;
-        border-radius: 10px;
+        border-radius: 5px;
         align-items: center;
-        padding: 10px 10px 30px 10px;
-        font-size: 20px;
-        font-weight: bold;
+        font-weight: 600;
+        padding:12px 0;
+        width: 250px;
         &:hover{
-            color:$light;
             cursor: pointer;
-            border: 1px solid $light;
+            border: 1px solid $blue;
+            background-color: $blue;
             transform: translateY(-3px);
             box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
         }
