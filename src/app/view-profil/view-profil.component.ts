@@ -58,16 +58,19 @@ export class ViewProfilComponent implements OnInit {
       return telecom[0].value
     }
     getTelephone(telecom: ContactPoint[]){
-      
-      for(var index in telecom){
-      console.log(index)
-        if(telecom[index].system=="phone"){
-          return telecom[index].value
-        }
-        else{
-          return "-"
-        }
+      let taille=telecom.length
+      var numeros:string[]=[]; 
+      if(telecom[taille-1].system=="phone"){
+        numeros.push(telecom[taille-1].value)
       }
+      for(let i=0;i<taille;i++){
+        console.log(i)
+        if(telecom[i].system=="phone"){
+          numeros.push(telecom[i].value)
+          return numeros
+        }
+      } 
+
       return telecom[0].value
     }
     getPhoneEmergency(contact: Contact[]){
