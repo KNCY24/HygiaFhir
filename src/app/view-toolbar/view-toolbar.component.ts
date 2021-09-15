@@ -29,10 +29,8 @@ export class ViewToolbarComponent implements OnInit {
         this.tabcontent=data;
         var count=0;
         let today = new Date()
-        console.log(today.getTime())
         for(let rappel of this.tabcontent){
           let dateRappel = new Date(rappel.executionPeriod.start)
-          console.log(dateRappel.getTime())
           if(rappel.owner.reference==='613f4631a5b46400122cf50c' && (dateRappel.getHours()>today.getHours() ||( dateRappel.getHours()==today.getHours() && dateRappel.getMinutes()>=today.getMinutes()))){
             if(rappel.priority=='routine'){
               let days=rappel.note[0].text
@@ -108,7 +106,6 @@ export class ViewToolbarComponent implements OnInit {
     this.task.description=this.intitule
     this.task.groupIdentifier.use="usual"
     this.task.groupIdentifier.value="none"
-    console.log(this.task)
     this.service.postRappel(this.task).subscribe(
       data => {
         this.router.navigate(['rappels'])

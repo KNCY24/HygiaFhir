@@ -78,7 +78,6 @@ export class ViewProfilComponent implements OnInit {
         numeros.push(telecom[taille-1].value)
       }
       for(let i=0;i<taille;i++){
-        console.log(i)
         if(telecom[i].system=="phone"){
           numeros.push(telecom[i].value)
           return numeros

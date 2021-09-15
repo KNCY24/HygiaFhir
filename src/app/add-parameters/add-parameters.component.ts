@@ -40,8 +40,6 @@ export class AddParametersComponent implements OnInit {
     }
     
     this.parameters.parameter.push(this.parameter);
-    console.log(this.parameter)
-    console.log(this.parameters)
     this.service.putParameters(this.parameters).subscribe(
       data=>{
         this.parameters=data;

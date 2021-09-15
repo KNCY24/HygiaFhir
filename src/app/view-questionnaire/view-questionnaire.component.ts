@@ -68,7 +68,6 @@ export class ViewQuestionnaireComponent implements OnInit {
       this.questionnaireResponse.item.push(this.item)
       i=i+1
     }
-    console.log(this.questionnaireResponse)
     this.service.postQuestionnaireResponse(this.questionnaireResponse).subscribe(
       data => {
         this.service.validQuestionnaire(this.questionnaire.id,this.questionnaire).subscribe(
