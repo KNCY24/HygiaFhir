@@ -5,7 +5,11 @@
 
     <div class="menu">
         <div id="glycémie" class="property">
-            <img src="../assets/images/mes glycemies.png" />
+            
+            <div class="image">
+                <img src="../assets/images/mes glycemies.png" />
+            </div>
+
             <form>
                 <input type="text" name="glycémie" [(ngModel)]=myGlycemie placeholder="Taux en g/L">
             </form>
@@ -13,7 +17,9 @@
         </div>
 
         <div id="poids" class="property">
-            <img src="../assets/images/balance-de-pesee.png" />
+            <div class="image">
+                <img src="../assets/images/balance-de-pesee.png" />
+            </div>
             <form>
                 <input type="text" name="poids" [(ngModel)]=myWeight placeholder="Poids en kg"> 
             </form>
@@ -21,14 +27,38 @@
         </div>
 
         <div id="activite" class="property">
-            <img src="../assets/images/gymnastique.png" />
+            <div class="image">
+                <img src="../assets/images/gymnastique.png" />
+            </div>
             <form>
-                <select [(ngModel)]="myActivity" name="activite" >
+                <select [(ngModel)]="myActivity" name="activite" id="activity">
                     <option value="">Choississez une activité</option>
+                    <option value="Aquagym">Aquagym</option>
+                    <option value="Boxe">Boxe</option>
+                    <option value="Course">Course</option>                  
+                    <option value="Danse">Danse</option>
+                    <option value="Équitation">Équitation</option>
+                    <option value="Équitation">Équitation</option>
+                    <option value="Football">Football</option>
+                    <option value="Golf">Golf</option>
+                    <option value="Handball">Handball</option>
+                    <option value="Ice Cross">Ice Cross</option>
+                    <option value="Judo">Judo</option>
+                    <option value="Karaté">Karaté</option>
+                    <option value="Lutte">Lutte</option>
                     <option value="Marche">Marche</option>
-                    <option value="Course">Course</option>
-                    <option value="Vélo">Vélo</option>
                     <option value="Natation">Natation</option>
+                    <option value="Octathlon">Octathlon</option>
+                    <option value="Paddle">Paddle</option>
+                    <option value="Quad">Quad</option>
+                    <option value="Roller">Roller</option>
+                    <option value="Ski">Ski</option> 
+                    <option value="Tennis">Tennis</option>  
+                    <option value="Ultimate">Ultimate</option>
+                    <option value="Vélo">Vélo</option>
+                    <option value="Waterpolo">Waterpolo</option>
+                    <option value="Yoga">Yoga</option>
+                    <option value="Zumba">Zumba</option>
                 </select>
             </form>
             <button (click)="addParameter('Activité')">Ajouter</button>

@@ -1,6 +1,7 @@
 $blue:#4169E1;
 $blue-light:#abbff8;
 $light:#7a8183;
+$blue-night:#233B6E;
 
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
@@ -38,12 +39,9 @@ $light:#7a8183;
                 font-weight: bold;
             }
             img{
-                display : block;
-                position : relative;
-                margin-left: auto;
-                margin-right: auto;
                 width: 80px;
-                bottom : 50px;
+                margin-right: auto;
+                margin-left: auto;
             }
             h2{
                 position : relative;
@@ -70,7 +68,7 @@ $light:#7a8183;
                 min-height: 30px;
             }
 
-            #id-activite{
+            #activity{
                 margin-top:30px;
                 border-radius: 5px;
                 border-color: $blue;
@@ -79,20 +77,31 @@ $light:#7a8183;
                 max-width: 99%;
                 min-height: 30px; 
             }
+            .image{
+                border: 1px solid black;
+                border-radius: 50%;
+                width:140px;
+                height:140px;
+                box-shadow: 5px 5px 2px #aaa; 
+                display: flex;
+                align-items: center;
+                text-align: center;
+            }
         }
     }
 
     
     button{
         border: 1px solid $blue;
+        background-color: $blue-night;
+        color : white;
         width: 250px;
         height: 30px;
         margin-top: 20px;
         border-radius: 10px;
         align-items: center;
         padding: 10px 10px 30px 10px;
-        font-size: 20px;
-        font-weight: bold;
+        font-size: 17px;
         &:hover{
             color:$light;
             cursor: pointer;
