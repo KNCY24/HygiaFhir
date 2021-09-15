@@ -30,33 +30,42 @@ export class ViewToolbarComponent implements OnInit {
         console.log(this.tabcontent)
         var count=0;
         let today = new Date()
+        
         for(let rappel of this.tabcontent){
-          console.log(this.tabcontent.length)
+          let date=rappel.executionPeriod.start
           if(rappel.owner.reference==='613f4631a5b46400122cf50c'){
-            console.log(rappel.description)
-            let date=rappel.executionPeriod.start
-            let days=rappel.note[0].text
-            var listdays=days.split(',')
-            const dateT=new Date(date)
-            var ret=""
-            for(let i=0;i<7;i++){
-              if(listdays[i]=="true"){
-                if(ret!=""){
-                  ret=ret+", "+this.listday[i]
-                }else{
-                  ret=this.listday[i]
+            if(rappel.priority=='routine'){
+              let days=rappel.note[0].text
+              var listdays=days.split(',')
+              const dateT=new Date(date)
+              var ret=""
+              for(let i=0;i<7;i++){
+                if(listdays[i]=="true"){
+                  if(ret!=""){
+                    ret=ret+", "+this.listday[i]
+                  }else{
+                    ret=this.listday[i]
+                  }
+
                 }
               }
+              if(ret.includes(today.toLocaleDateString('fr-fr', {  weekday: 'long' }))){
+                this.notifs.push(rappel)
+                count=count+1;
+                
+              }
             }
-            
+            if(rappel.priority=='urgent'){
             let DateNotif= new Date(date);
-            console.log(ret)
-            if(DateNotif.toLocaleDateString()==today.toLocaleDateString() || ret.includes(today.toLocaleDateString('fr-fr', {  weekday: 'long' }))){
+            if(DateNotif.toLocaleDateString()==today.toLocaleDateString() ){
               this.notifs.push(rappel)
               count=count+1;
+              
             }
           }
         }
+        }
+        console.log(count)
         this.nbRappels=count;
       })
    }
