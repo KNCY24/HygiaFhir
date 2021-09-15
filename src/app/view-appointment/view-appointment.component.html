@@ -11,11 +11,20 @@
               <tr>
                 <th>Type de rappel</th>
                 <th>Nom du rappel</th>
-                <th>Fréquence</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
-              
+              <tr *ngFor="let rappel of tabcontent">
+                <td>{{getType(rappel.priority)}}</td>
+                <td>{{rappel.description}}</td>
+                <td *ngIf="rappel.priority=='routine'">
+                  Les lundis, jeudis à {{rappel.executionPeriod}}
+                </td>
+                <td *ngIf="rappel.priority=='urgent'">
+                  Le {{rappel.executionPeriod}}
+                </td>
+              </tr>
             </tbody>
           </table>
     </div>
