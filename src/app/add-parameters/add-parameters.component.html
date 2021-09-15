@@ -1,17 +1,33 @@
-<h1>Ajouter des paramètres</h1>
+<app-view-toolbar></app-view-toolbar>
 
-<h2>Ma glycémie</h2>
+<div class="content">
+    <h1>Ajouter des paramètres</h1>
 
-<input type="text" name="glycémie" id="input-blood-sugar-level">
-<button type="button" class=button-submit id="button-blood-sugar-level">Envoyer</button>
+    <div class="menu">
+        <div id="glycémie" class="property">
+            <img src="../assets/images/mes glycemies.png" />
+            <input type="text" name="glycémie" id="input-blood-sugar-level" class='input' placeholder="Taux en g/L">
+            <button type="button" class=button id="button-blood-sugar-level">Ajouter</button>
+        </div>
 
-<h2>Mon poids</h2>
+        <div id="poids" class="property">
+            <img src="../assets/images/balance-de-pesee.png" />
+            <input type="text" name="poids" id="input-weight" class='input' placeholder="Poids en kg"> 
+            <button type="button" class=button id="button-weight">Ajouter</button>
+        </div>
 
-<input type="text" name="poids" id="input-weight">
-<button type="button" class=button-submit id="button-weight">Envoyer</button> 
-
-<h2>Mes activités physiques</h2>
-
-<input type="text" name="activites" id="input-physical-activity">
-<span id="physical-activity">{{parameter.valueString}}</span>
-<button type="button" class=button-submit id="button-physical-activity">Envoyer</button> 
+        <div id="activite" class="property">
+            <img src="../assets/images/gymnastique.png" />
+            <form class='input'>
+                <select name="activite" id="id-activite">
+                    <option value="">Choississez une activité</option>
+                    <option value="marche">Marche</option>
+                    <option value="course">Course</option>
+                    <option value="vélo">Vélo</option>
+                    <option value="natation">Natation</option>
+                </select>
+            </form>
+            <button type="button" class=button id="button-physical-activity">Ajouter</button>
+        </div>
+    </div>
+</div>

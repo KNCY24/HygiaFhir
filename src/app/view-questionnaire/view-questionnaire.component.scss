@@ -1,0 +1,75 @@
+$blue:#4169E1;
+$blue-light:#abbff8;
+$light:#7a8183;
+$blue-night:#233B6E;
+
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+.content {
+    display: flex;
+    margin: 100px auto 25px;
+    padding: 0 16px 50px;
+    flex-direction: column;
+    align-items: center;
+    h1{
+        img{
+            position: relative;
+            top:30px;
+            width: 90px;
+        }
+        font-family: 'Patrick Hand', cursive;
+        font-size: 50px;
+    }
+    .questionnaire{
+        a{
+            text-decoration: none;
+            color:black;
+        }
+        border-radius: 15px;
+        margin-top:4.5%;
+        border: 1px solid $blue;
+        padding:20px 40px 40px;
+        width: 65%;
+        div.question{
+            margin-top:30px;
+            span{
+                display: block;
+                font-weight: 600;
+                margin-top: 10px;
+            }
+            textarea{
+                border-radius: 5px;
+                border-color: $blue;
+                width: 99%;
+                max-width: 99%;
+                min-height: 30px;
+            }
+        }
+        div.noquestion{
+            font-weight: 500;
+            padding-top:25px;
+            text-align: center;
+            width: 100%;
+        }
+        button{
+            border-radius: 5px;
+            margin:35px 5px auto auto;
+            position: relative;
+            float:right;
+            font-weight: 600;
+            padding:12px 40px;
+            color:white;
+            border:0.5px solid $blue-night;
+            background-color: $blue-night;
+            &:hover{
+                cursor:pointer;
+                border:0.5px solid $blue;
+                background-color: $blue;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+            }
+        }
+        
+    }
+}
+
