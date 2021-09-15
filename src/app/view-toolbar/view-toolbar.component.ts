@@ -32,7 +32,7 @@ export class ViewToolbarComponent implements OnInit {
 
         for(let rappel of this.tabcontent){
           console.log(rappel.executionPeriod.Start.getMonth())
-          if(rappel.executionPeriod.Start.getMonth()==""){
+          if(rappel.status="requested"){
             count=count+1;
           }
         }
