@@ -21,7 +21,7 @@ $blue-night:#233B6E;
         font-size: 50px;
     }
     .menu{
-        margin-top:8%;
+        margin-top:7%;
         display: grid;
         grid-template-areas: 
         'glycémie poids activite';
@@ -57,6 +57,11 @@ $blue-night:#233B6E;
             }
             &#activite{
                 grid-area: activite;
+                select{
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
             }
 
             input{
@@ -92,20 +97,19 @@ $blue-night:#233B6E;
 
     
     button{
-        border: 1px solid $blue;
+        border: 1px solid $blue-night;
         background-color: $blue-night;
         color : white;
-        width: 250px;
-        height: 30px;
         margin-top: 20px;
-        border-radius: 10px;
+        border-radius: 5px;
         align-items: center;
-        padding: 10px 10px 30px 10px;
-        font-size: 17px;
+        font-weight: 600;
+        padding:12px 0;
+        width: 250px;
         &:hover{
-            color:$light;
             cursor: pointer;
-            border: 1px solid $light;
+            border: 1px solid $blue;
+            background-color: $blue;
             transform: translateY(-3px);
             box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
         }
