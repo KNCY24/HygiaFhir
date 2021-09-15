@@ -4,7 +4,7 @@ $light:#ecf2f3;
 
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
-.content {
+:host ::ng-deep .content {
     display: flex;
     margin: 100px auto 25px;
     padding: 0 16px 50px;
@@ -61,6 +61,16 @@ $light:#ecf2f3;
                 transform: translateY(-3px);
                 box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
             }
+            .mat-badge-content{
+                background: #233B6E;
+                color: white;
+                padding: 10px 15px !important;
+                border-radius: 50% !important;
+                position: relative !important;
+                top: -280px !important;
+                left: 135px !important;
+                width: 12px !important;
+            }
         }
         div.alert{
             position: absolute;
@@ -77,15 +87,4 @@ $light:#ecf2f3;
             font-weight: bold;
         }
     }
-}
-
-:host ::ng-deep .mat-badge-content{
-    background: #233B6E;
-    color: white;
-    padding: 10px 15px !important;
-    border-radius: 50% !important;
-    position: relative !important;
-    top: -280px !important;
-    left: 135px !important;
-    width: 12px !important;
 }

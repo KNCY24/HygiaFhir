@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import {MatBadgeModule} from '@angular/material/badge';
@@ -7,6 +8,7 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatChipsModule} from '@angular/material/chips';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { AppComponent } from './app.component';
 import { AddParametersComponent } from './add-parameters/add-parameters.component';
@@ -52,7 +54,9 @@ const appRoutes : Routes = [
     AppRoutingModule,
     MatChipsModule,
     MatBadgeModule,
+    MatMenuModule,
     ScrollingModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
   exports: [RouterModule],
