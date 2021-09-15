@@ -1,19 +1,29 @@
+<app-view-toolbar></app-view-toolbar>
     <!--Contenu Page-->
+    
     <div class="content">
+        <div id="profil">
+            <img src="assets/images/profil.png" alt=carteDI/>
+            <label >Mon profil</label>
+        </div>
         <div class="identite">
+            
         <!--Bandeau Gauche-->
             <div id="gauche">
-                <p> <label>nom: {{getOfficialFamilyName(patient.name)}} </label> </p>
-                <p> <label>prenom: {{getOfficialGivenName(patient.name)}} </label></p>
-                <p><label>Date de naissance: {{patient.birthDate}} </label></p>
+                <img src="assets/images/carte-d_identite.png" alt=carteDI/>
+                <span>Identité</span>
+                <p> <label>&nbsp;&nbsp;&nbsp;&nbsp;Nom : {{getOfficialFamilyName(patient.name)}} </label> </p>
+                <p> <label>&nbsp;&nbsp;&nbsp;&nbsp;Prenom : {{getOfficialGivenName(patient.name)}} </label></p>
+                <p><label>&nbsp;&nbsp;&nbsp;&nbsp;Date de naissance : {{patient.birthDate}} </label></p>
             </div>
-  
         <!--Droite-->
             <div id="droite">
-                <p><label>Adresse:  {{getAddress(patient.address)}}</label></p>
-                <p><label>E-mail: {{getEmail(patient.telecom)}}</label></p>
-                <p><label>Telephone: {{getTelephone(patient.telecom)}}</label></p>
-                <p><label>Contact d'urgence: </label></p>
+                <img src="assets/images/carnet-d_adresses.png" alt=carnetDA/>
+                <span>Coordonnées</span>
+                <p><label>&nbsp;&nbsp;&nbsp;&nbsp;Adresse :  {{getAddress(patient.address)}}</label></p>
+                <p><label>&nbsp;&nbsp;&nbsp;&nbsp;E-mail : {{getEmail(patient.telecom)}}</label></p>
+                <p><label>&nbsp;&nbsp;&nbsp;&nbsp;Téléphone : {{getTelephone(patient.telecom)}}</label></p>
+                <p><label>&nbsp;&nbsp;&nbsp;&nbsp;Contact d'urgence : {{getGivenEmergency(patient.contact)}} {{getFamilyEmergency(patient.contact)}},  {{getPhoneEmergency(patient.contact)}} </label></p>
             </div>
         </div>
     </div>
