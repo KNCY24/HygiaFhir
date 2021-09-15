@@ -16,17 +16,19 @@
               </tr>
             </thead>
             <tbody>
-              <!--<tr *ngFor="let rappel of tabcontent">
-                <td>{{getStatus(rappel.status,rappel.priority)}}</td>
-                <td>{{getType(rappel.priority)}}</td>
-                <td>{{rappel.description}}</td>
-                <td *ngIf="rappel.priority=='routine'">
-                  Les {{getFrequence(rappel.executionPeriod.start,rappel.note[0].text)}}
-                </td>
-                <td *ngIf="rappel.priority=='urgent'">
-                  Le {{transformDate(rappel.executionPeriod.start)}}
-                </td>
-              </tr>-->
+              <tr *ngFor="let rappel of tabcontent">
+                <ng-container *ngIf="rappel.owner.reference=='613f4631a5b46400122cf50c'">
+                  <td>{{getStatus(rappel.status,rappel.priority)}}</td>
+                  <td>{{getType(rappel.priority)}}</td>
+                  <td>{{rappel.description}}</td>
+                  <td *ngIf="rappel.priority=='routine'">
+                    Les {{getFrequence(rappel.executionPeriod.start,rappel.note[0].text)}}
+                  </td>
+                  <td *ngIf="rappel.priority=='urgent'">
+                    Le {{transformDate(rappel.executionPeriod.start)}}
+                  </td>
+                </ng-container>
+              </tr>
             </tbody>
           </table>
     </div>

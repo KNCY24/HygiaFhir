@@ -542,7 +542,7 @@ export class Task{
     //requester : { Reference(Device|Organization|Patient|Practitioner|
     //PractitionerRole|RelatedPerson) }; // Who is asking for task to be done
     performerType : CodeableConcept[] = []; // Requested performer
-    //owner : { Reference(Practitioner|PractitionerRole|Organization|CareTeam|
+    owner : Reference=new Reference()
     //HealthcareService|Patient|Device|RelatedPerson) }; // Responsible individual
     //location : { Reference(Location) }; // Where task occurs
     reasonCode : CodeableConcept = new CodeableConcept();// Why task is needed

@@ -13,6 +13,7 @@ export class ViewBoardComponent implements OnInit {
   tabcontent:any= new TabContent();
 
   nbQuestionnaire=0;
+  x=setInterval(()=>{},3000);
 
   constructor(private service:RestserviceService) {
     service.getMedication().subscribe(
@@ -24,17 +25,20 @@ export class ViewBoardComponent implements OnInit {
         this.patient=data;
       }
     )
-    service.getQuestionnaire().subscribe(
-      data => {
-        this.tabcontent=data;
-        var count=0;
-        for(let questionnaire of this.tabcontent){
-          if(questionnaire.status=='active'){
-            count=count+1;
+    this.x= setInterval(() => {
+      service.getQuestionnaire().subscribe(
+        data => {
+          this.tabcontent=data;
+          var count=0;
+          for(let questionnaire of this.tabcontent){
+            if(questionnaire.status=='active'){
+              count=count+1;
+            }
           }
-        }
-        this.nbQuestionnaire=count;
-      })
+          this.nbQuestionnaire=count;
+        })
+    },3000)
+    
    }
 
   ngOnInit(): void {
