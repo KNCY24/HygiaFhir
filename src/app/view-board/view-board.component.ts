@@ -12,7 +12,6 @@ export class ViewBoardComponent implements OnInit {
   patient:Patient=new Patient();
   tabcontent:any= new TabContent();
 
-  hidden=false;
   nbQuestionnaire=0;
 
   constructor(private service:RestserviceService) {
@@ -35,11 +34,6 @@ export class ViewBoardComponent implements OnInit {
           }
         }
         this.nbQuestionnaire=count;
-        if(count>1){
-          this.hidden=false;
-        }else{
-          this.hidden=true;
-        }
       })
    }
 
