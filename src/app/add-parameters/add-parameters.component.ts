@@ -23,6 +23,7 @@ export class AddParametersComponent implements OnInit {
   myActivity: string ="";
 
   constructor(private service: RestserviceService) {
+    console.log("HELLLLOOOO");
     this.server = service.getServer;  
     service.getParameters().subscribe(
       data => {
