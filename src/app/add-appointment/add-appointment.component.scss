@@ -1,0 +1,104 @@
+$blue-night:#233B6E;
+$blue-light:#abbff8;
+$light:#7a8183;
+$red:#ff0000;
+$green:#00ff00;
+$blue:#4169E1;
+
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+
+
+
+
+#dark-background{
+    background: rgba(0,0,0,0.7);
+    top:0;
+    z-index:2;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+
+    #accountPopup {
+        width:60%;
+        margin:15% auto;
+        border: 2px solid $blue;
+        background-color: white;
+
+        .popupHeader{
+            border: 2px solid $blue;
+            padding:18px;
+            text-align: center;
+            color:white;
+            background: $blue;
+            font-weight: 600;
+            font-size:18px;
+            .fas{
+                position: relative;
+                float: right;
+                font-size: 30px;
+                margin-top:-5px;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+        .popupBody{
+            padding:30px;
+            text-align: center;
+            input{
+                display: inline-block;
+                margin: 20px 5px 5px 20px;
+                border:1px solid $blue-light;
+                color:$blue-light;
+                font-weight: 600;
+                padding:8px;
+                border-radius: 8px;
+                width: 200px;
+                &:focus{
+                    outline:0;
+                }
+                &::placeholder{
+                    color:$blue-light;
+                    font-weight: normal;
+                }
+            }
+            .alert{
+                height: 23px;
+                margin-bottom: 15px;
+                font-size:16px;
+                .fas{
+                    margin-right:5px;
+                }
+            }
+            .fas{
+                vertical-align: middle;
+                margin-right: 20px;
+                font-size: 18px;
+            }
+            .fa-times{
+                color:$red;
+            }
+            .fa-check{
+                color:$green;
+            }
+            button{
+                border:1.5px solid $blue-light;
+                border-radius:8px;
+                background-color: $blue;
+                color:white;
+                padding:8px;
+                width:110px;
+                margin-top:60px;
+                font-size:14px;
+                transition: all 0.2s ease-in-out;
+                &:hover{
+                    cursor: pointer;
+                    transform: translateY(-3px);
+                    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+
+                }
+                
+            }
+        }
+    }
+}

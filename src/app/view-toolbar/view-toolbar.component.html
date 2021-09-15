@@ -1,9 +1,44 @@
 <div class="toolbar" role="banner">
     <img (click)="home()" id="logo-img" alt="KREMS Logo" src="assets/images/logo.png"/>
     <div class="spacer"></div>
-    <div class="rappel">
-        <img  id="plus-img" alt="plus" src="assets/images/plus.png"/>  
+    <div class="rappel" (click)="showPopup()">
+        <img id="plus-img" alt="plus" src="assets/images/plus.png"/>  
         <span>Ajouter un rappel</span>
     </div>
-    <img  id="alert-img" alt="alert" src="assets/images/notification.png"/>  
+    <img id="alert-img" alt="alert" src="assets/images/notification.png"/> 
+    
+
+    <div id="dark-background" *ngIf="isPopup==true">
+        <div id="appointmentPopup">
+          <div class=popupHeader>
+              NOUVEAU RAPPEL
+              <i (click)="closePopup()" class="fas fa-times-circle"></i>
+          </div>
+          <div class=popupBody>
+              Choisissez le type de rappel :
+            <select>
+                <option>Rendez-vous</option>
+                <option>Prise de médicament</option>
+            </select>
+            <select [(ngModel)]=frequence>
+                <option value="p"> Ponctuel</option>
+                <option value="r">Régulier</option>
+            </select>
+            <br>
+            <div *ngIf="frequence == 'p'">
+                Date du rappel : <input [(ngModel)]="input1" type=date/> 
+            </div>
+            <div class="mat-chip-day" *ngIf="frequence == 'r'">
+                <mat-chip-list aria-label="day selection" class="chip-day">
+                    <mat-chip class="box-day" *ngFor="let day of listday;let indexOfElement=index"  [ngClass]="{'box-day-selected':isSelected(indexOfElement)==true}" (click)="selectDay(indexOfElement)">{{day}}</mat-chip>
+                </mat-chip-list>
+            </div>
+            <div>
+                Heure du rappel : <input [(ngModel)]="input3" type=time/> 
+            </div>
+            <br>
+            <button (click)="addAppointment()">Ajouter</button>
+          </div>
+        </div>
+
 </div>
