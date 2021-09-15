@@ -20,6 +20,7 @@ export class ViewToolbarComponent implements OnInit {
   listday=["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
   selectedday:boolean[]=[false,false,false,false,false,false,false];
   tabcontent:any= new TabContent();
+  notifs:Task[]=[];
 
   constructor(private service:RestserviceService,private router:Router) { 
     this.task=new Task();
@@ -27,12 +28,17 @@ export class ViewToolbarComponent implements OnInit {
       data => {
         this.tabcontent=data;
         var count=0;
-        let today = new Date().toLocaleDateString();
+        let today = new Date()
+        //let month=" "+today.getFullYear()+"-"+today.getMonth()+"-"+today.getDay()
         console.log(today)
-
         for(let rappel of this.tabcontent){
-          console.log(rappel.executionPeriod.Start.getMonth())
-          if(rappel.status="requested"){
+          //date=" "
+        let date=rappel.executionPeriod.start
+        let DateNotif= new Date(date);
+            console.log()
+         
+          if( DateNotif.toLocaleDateString()==today.toLocaleDateString()){
+            this.notifs.push(rappel)
             count=count+1;
           }
         }

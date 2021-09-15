@@ -50,6 +50,7 @@ $blue:#4169e1;
                     padding: 10px;
                     border: 1px ridge $blue;
                     grid-area: gauche;
+                    border-radius:15px;
 
                 }
    
@@ -60,6 +61,7 @@ $blue:#4169e1;
                     padding: 10px;
                     border: 1px ridge $blue;
                     grid-area: droite;
+                    border-radius:15px;
                     
                 }
         }   
