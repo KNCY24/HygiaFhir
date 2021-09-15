@@ -36,7 +36,6 @@ export class ViewToolbarComponent implements OnInit {
         let date=rappel.executionPeriod.start
         let DateNotif= new Date(date);
             console.log()
-         
           if( DateNotif.toLocaleDateString()==today.toLocaleDateString()){
             this.notifs.push(rappel)
             count=count+1;
@@ -45,7 +44,9 @@ export class ViewToolbarComponent implements OnInit {
         this.nbRappels=count;
       })
    }
-  
+   getIntitule(intitule:String){
+    return intitule
+  }
 
   ngOnInit(): void {
   }
@@ -99,5 +100,21 @@ export class ViewToolbarComponent implements OnInit {
       })
     
   }
+  formatTime(hour:number,minute:number){
+    var hourtext=String(hour)
+    var minutetext=String(minute)
+    if(hour<10){
+      hourtext="0"+hour
+    }
+    if(minute<10){
+      minutetext="0"+minute
+    }
+    return hourtext+"h"+minutetext
+  }
 
+  getFrequence(date:Date){
+    const dateT=new Date(date)
+    
+    return  this.formatTime(dateT.getHours(),dateT.getMinutes())
+  }
 }
