@@ -19,6 +19,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ViewToolbarComponent } from './view-toolbar/view-toolbar.component';
 import { ViewProfilComponent } from './view-profil/view-profil.component';
 import { ViewAppointmentComponent } from './view-appointment/view-appointment.component';
+import {DatePipe} from '@angular/common';
 
 declare var require: any;
 
@@ -56,7 +57,7 @@ const appRoutes : Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
