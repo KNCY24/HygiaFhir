@@ -54,9 +54,10 @@ export class ViewToolbarComponent implements OnInit {
       this.task.priority="routine"
       var date=new Date("January 1,2021 "+this.time)
       this.task.executionPeriod.start=date
-      for(let day of this.selectedday){
-        note.text=note+","+this.selectedday
-      }
+      note.text=String(this.selectedday)
+      /*for(let day of this.selectedday){
+        note.text=note.text+","+this.selectedday
+      }*/
       this.task.note.push(note)
     }else{
       this.task.priority="urgent"
@@ -70,6 +71,9 @@ export class ViewToolbarComponent implements OnInit {
     this.service.postRappel(this.task).subscribe(
       data => {
         this.router.navigate(['rappels'])
+        setTimeout(()=> {
+          document.location.reload() 
+        },1000)
         this.closePopup();
       })
     
