@@ -1,28 +1,64 @@
 $blue:#4169e1;
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 .content{
     display: flex;
-    margin: 82px auto 32px;
+    margin: 100px auto 25px;
     padding: 0 16px 50px;
     flex-direction: column;
     align-items: center;
+    div{
+        &#profil{
+            vertical-align: middle;
+            img{
+                right:12px;
+                position: relative;
+                top:30px;
+                width: 90px;
+            }
+            label{
+                font-family: 'Patrick Hand', cursive;
+                font-size: 50px;
+            }
+        }
+    }
     .identite{
+        margin-top:7%;
         display: grid;
         grid-template-areas: 
         'gauche droite';
         grid-template-columns: 50% 50%;
-        grid-gap:50px;
-        div{
-                background-color: #ffffff;
-                width: 200px;
-                height: 100%;
-                padding: 10px;
-                border: 1px ridge $blue;
+        grid-gap:100px;
+        div{  
+            
+            
+                img{
+                    margin-top:-20%;
+                    margin-left:30%;
+                    width: 150px;
+                }
+                span{
+                    display: flex; 
+                    justify-content: center; 
+                    font-size: 17px;
+                    font-weight: bold;
+                    margin-bottom: 8%;
+                }
                 &#gauche {
+                    background-color: #ffffff;
+                    width: 400px;
+                    height: 100%;
+                    padding: 10px;
+                    border: 1px ridge $blue;
                     grid-area: gauche;
 
                 }
    
                 &#droite {
+                    background-color: #ffffff;
+                    width: 400px;
+                    height: 100%;
+                    padding: 10px;
+                    border: 1px ridge $blue;
                     grid-area: droite;
                     
                 }

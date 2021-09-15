@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { Medication,Patient,Questionnaire,Parameters, TabContent, QuestionnaireResponse} from './KREMS';
+import { Medication,Patient,Questionnaire,Parameters, TabContent, QuestionnaireResponse,Task} from './KREMS';
 import { AppComponent } from './app.component';
 
 @Injectable({
@@ -53,4 +53,21 @@ export class RestserviceService {
     return this.http.put<Parameters>(this.server+"parameters/6140a8b7a5b46400122cf528",response)
   }
 
+  postRappel(rappel:Task):Observable<Task>{
+    return this.http.post<Task>(this.server+"task",rappel)
+  }
+
+  getRappel():Observable<TabContent>{
+    return this.http.get<TabContent>(this.server+"task")
+  }
+
+
+  getResponse():Observable<QuestionnaireResponse>{
+    return this.http.get<QuestionnaireResponse>(this.server+"questionnaire-response")
+  }
+  deleteResponse(idresponse:String):Observable<QuestionnaireResponse>{
+    return this.http.delete<QuestionnaireResponse>(this.server+"questionnaire-response/"+idresponse)
+  }
+
+  
 }

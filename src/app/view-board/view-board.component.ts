@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HumanName, Medication,Patient } from '../KREMS';
+import { HumanName, Medication,Patient,TabContent } from '../KREMS';
 import { RestserviceService } from '../restservice.service';
 
 @Component({
@@ -10,6 +10,9 @@ import { RestserviceService } from '../restservice.service';
 export class ViewBoardComponent implements OnInit {
   medication:Medication=new Medication();
   patient:Patient=new Patient();
+  tabcontent:any= new TabContent();
+
+  nbQuestionnaire=0;
 
   constructor(private service:RestserviceService) {
     service.getMedication().subscribe(
@@ -21,6 +24,17 @@ export class ViewBoardComponent implements OnInit {
         this.patient=data;
       }
     )
+    service.getQuestionnaire().subscribe(
+      data => {
+        this.tabcontent=data;
+        var count=0;
+        for(let questionnaire of this.tabcontent){
+          if(questionnaire.status=='active'){
+            count=count+1;
+          }
+        }
+        this.nbQuestionnaire=count;
+      })
    }
 
   ngOnInit(): void {
