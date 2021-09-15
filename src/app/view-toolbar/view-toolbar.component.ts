@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { Annotation, Task } from '../KREMS';
+import { RestserviceService } from '../restservice.service';
 
 @Component({
   selector: 'app-view-toolbar',
@@ -8,15 +10,19 @@ import {Router} from '@angular/router';
 })
 export class ViewToolbarComponent implements OnInit {
 
-  isPopup=true;
-  input1="";
-  input2="";
-  input3="";
+  task:Task;
+  isPopup=false;
+  intitule="";
+  date="";
+  time="";
   frequence="r";
+  type="rdv";
   listday=["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
   selectedday:boolean[]=[false,false,false,false,false,false,false];
 
-  constructor(private router:Router) { }
+  constructor(private service:RestserviceService,private router:Router) { 
+    this.task=new Task();
+  }
 
   ngOnInit(): void {
   }
@@ -43,7 +49,30 @@ export class ViewToolbarComponent implements OnInit {
   }
 
   addAppointment(){
-
+    var note=new Annotation();
+    if(this.frequence=="r"){
+      this.task.priority="routine"
+      var date=new Date("January 1,2021 "+this.time)
+      this.task.executionPeriod.start=date
+      for(let day of this.selectedday){
+        note.text=note+","+this.selectedday
+      }
+      this.task.note.push(note)
+    }else{
+      this.task.priority="urgent"
+      var date=new Date(this.date)
+      this.task.executionPeriod.start=new Date(date.getMonth()+1+" "+date.getDate()+","+date.getFullYear()+" "+this.time)
+    }
+    this.task.description=this.intitule
+    this.task.groupIdentifier.use="usual"
+    this.task.groupIdentifier.value="none"
+    console.log(this.task)
+    this.service.postRappel(this.task).subscribe(
+      data => {
+        this.router.navigate(['rappels'])
+        this.closePopup();
+      })
+    
   }
 
 }

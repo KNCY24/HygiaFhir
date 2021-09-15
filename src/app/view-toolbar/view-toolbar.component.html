@@ -15,10 +15,12 @@
               <i (click)="closePopup()" class="fas fa-times-circle"></i>
           </div>
           <div class=popupBody>
+              Intitulé du rappel : <input class=intitule [(ngModel)]="intitule" type=text/>
+            <br>
               Choisissez le type de rappel :
-            <select>
-                <option>Rendez-vous</option>
-                <option>Prise de médicament</option>
+            <select [(ngModel)]=type>
+                <option value='rdv'>Rendez-vous</option>
+                <option value='medoc'>Prise de médicament</option>
             </select>
             <select [(ngModel)]=frequence>
                 <option value="p"> Ponctuel</option>
@@ -26,7 +28,7 @@
             </select>
             <br>
             <div *ngIf="frequence == 'p'">
-                Date du rappel : <input [(ngModel)]="input1" type=date/> 
+                Date du rappel : <input [(ngModel)]="date" type=date/> 
             </div>
             <div class="mat-chip-day" *ngIf="frequence == 'r'">
                 <mat-chip-list aria-label="day selection" class="chip-day">
@@ -34,7 +36,7 @@
                 </mat-chip-list>
             </div>
             <div>
-                Heure du rappel : <input [(ngModel)]="input3" type=time/> 
+                Heure du rappel : <input [(ngModel)]="time" type=time/> 
             </div>
             <br>
             <button (click)="addAppointment()">Ajouter</button>

@@ -132,6 +132,9 @@ $blue:#4169E1;
                 &:hover{
                     cursor: pointer;
                 }
+                &.intitule{
+                    width:400px;
+                }
             }
             button{
                 border:1.5px solid $blue-night;
