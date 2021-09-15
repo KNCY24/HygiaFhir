@@ -8,35 +8,41 @@
     <div class="menu">
 
         <div id="glycémie" class="property">
-            <div>
+            <div class=item>
                 <img src="../assets/images/mes glycemies.png" />
-                <h2>Ma glycémie</h2>
+                <span class=title>Ma glycémie</span>
             </div>
-            <div *ngFor="let parameter of historiqueGlycemie">
-                <span [innerHTML]="parameter.valueDateTime"></span><span> : </span><span
-                    [innerHTML]="parameter.valueDecimal"></span><span> g/L</span>
+            <div class=scroller>
+                <div *ngFor="let parameter of historiqueGlycemie">
+                    <span [innerHTML]="transformDate(parameter.valueDateTime)"></span><span> : </span><span
+                        [innerHTML]="parameter.valueDecimal"></span><span> g/L</span>
+                </div>
             </div>
         </div>
 
         <div id="poids" class="property">
-            <div>
+            <div class=item>
                 <img src="../assets/images/balance-de-pesee.png" />
-                <h2>Mon poids</h2>
+                <span class=title>Mon poids</span>
             </div>
-            <div *ngFor="let parameter of historiquePoids">
-                <span [innerHTML]="parameter.valueDateTime"></span><span> : </span><span
-                    [innerHTML]="parameter.valueDecimal"></span><span> kg</span>
+            <div class=scroller>
+                <div *ngFor="let parameter of historiquePoids">
+                    <span [innerHTML]="transformDate(parameter.valueDateTime)"></span><span> : </span><span
+                        [innerHTML]="parameter.valueDecimal"></span><span> kg</span>
+                </div>
             </div>
         </div>
 
         <div id="activite" class="property">
-            <div>
+            <div class=item>
                 <img src="../assets/images/gymnastique.png" />
-                <h2>Mes activités physiques</h2>
+                <span class=title>Mes activités physiques</span>
             </div>
-            <div *ngFor="let parameter of historiqueActivite">
-                <span [innerHTML]="parameter.valueDateTime"></span><span> : </span><span
-                    [innerHTML]="parameter.valueString"></span>
+            <div class=scroller>
+                <div *ngFor="let parameter of historiqueActivite">
+                    <span [innerHTML]="transformDate(parameter.valueDateTime)"></span><span> : </span><span
+                        [innerHTML]="parameter.valueString"></span>
+                </div>
             </div>
         </div>
 
