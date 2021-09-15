@@ -11,13 +11,11 @@ export class ViewParametersComponent implements OnInit {
 
   parameters : Parameters = new Parameters();
   parameter : Parameter = new Parameter();
-  server : string;
   historiqueGlycemie : Parameter[]=[];
   historiquePoids : Parameter[]=[];
   historiqueActivite : Parameter[]=[];
 
   constructor(private service: RestserviceService) {
-    this.server = service.getServer;  
     service.getParameters().subscribe(
       data => {
         this.parameters=data;
@@ -35,7 +33,7 @@ export class ViewParametersComponent implements OnInit {
 
   determineValueGlycemie() : Parameter[] {
     for (let i = 0; i < this.parameters.parameter.length; i++){
-      if (this.parameters.parameter[i].name=="glycémie"){
+      if (this.parameters.parameter[i].name=="Glycémie"){
         this.historiqueGlycemie.push(this.parameters.parameter[i]);
       } 
     }
@@ -45,7 +43,7 @@ export class ViewParametersComponent implements OnInit {
   determineValuePoids() : Parameter[] {
 
     for (let i = 0; i < this.parameters.parameter.length; i++){
-      if (this.parameters.parameter[i].name=="poids"){
+      if (this.parameters.parameter[i].name=="Poids"){
         this.historiquePoids.push(this.parameters.parameter[i]);
       } 
     }
@@ -55,7 +53,7 @@ export class ViewParametersComponent implements OnInit {
   determineValueActivite() : Parameter[] {
 
     for (let i = 0; i < this.parameters.parameter.length; i++){
-      if (this.parameters.parameter[i].name=="activite"){
+      if (this.parameters.parameter[i].name=="Activité"){
         this.historiqueActivite.push(this.parameters.parameter[i]);
       } 
     }

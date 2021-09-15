@@ -1,6 +1,6 @@
 $blue:#4169E1;
 $blue-light:#abbff8;
-$light:#7a8183;
+$light:#ecf2f3;
 
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
@@ -40,8 +40,11 @@ $light:#7a8183;
                     height: 70px;
                     th{
                         padding:5px;
-                        width: 25%;
+                        width: 22%;
                         text-align: center;
+                        &:last-child(){
+                            width:34%;
+                        }
                     }
                 }
             }
@@ -51,9 +54,15 @@ $light:#7a8183;
                     height: 50px;
                     td{
                         padding:5px;
-                        width: 25%;
+                        width: 22%;
                         text-align: center;
                         
+                        &:last-child(){
+                            width:34%;
+                        }
+                    }
+                    &:hover{
+                        background-color: $light;
                     }
                 }
             }

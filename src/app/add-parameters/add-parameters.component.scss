@@ -11,6 +11,11 @@ $light:#7a8183;
     flex-direction: column;
     align-items: center;
     h1{
+        img{
+            position: relative;
+            top:30px;
+            width: 90px;
+        }
         font-family: 'Patrick Hand', cursive;
         font-size: 50px;
     }
@@ -56,16 +61,29 @@ $light:#7a8183;
                 grid-area: activite;
             }
 
-            .input{
-                width: 250px;
-                height: 20px;
-                text-align: center;
+            input{
+                margin-top:30px;
+                border-radius: 5px;
+                border-color: $blue;
+                width: 240px;
+                max-width: 99%;
+                min-height: 30px;
+            }
+
+            #id-activite{
+                margin-top:30px;
+                border-radius: 5px;
+                border-color: $blue;
+                width: 240px;
+                height: 38px;
+                max-width: 99%;
+                min-height: 30px; 
             }
         }
     }
 
     
-    .button{
+    button{
         border: 1px solid $blue;
         width: 250px;
         height: 30px;

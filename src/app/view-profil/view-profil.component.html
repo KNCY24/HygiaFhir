@@ -13,8 +13,8 @@
                 <img src="assets/images/carte-d_identite.png" alt=carteDI/>
                 <span>Identité</span>
                 <p> <label>&nbsp;&nbsp;&nbsp;&nbsp;Nom : {{getOfficialFamilyName(patient.name)}} </label> </p>
-                <p> <label>&nbsp;&nbsp;&nbsp;&nbsp;Prenom : {{getOfficialGivenName(patient.name)}} </label></p>
-                <p><label>&nbsp;&nbsp;&nbsp;&nbsp;Date de naissance : {{patient.birthDate}} </label></p>
+                <p> <label>&nbsp;&nbsp;&nbsp;&nbsp;Prénom : {{getOfficialGivenName(patient.name)}} </label></p>
+                <p><label>&nbsp;&nbsp;&nbsp;&nbsp;Date de naissance : {{formatDate(patient.birthDate)}} </label></p>
             </div>
         <!--Droite-->
             <div id="droite">

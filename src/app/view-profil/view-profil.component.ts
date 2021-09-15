@@ -18,6 +18,14 @@ export class ViewProfilComponent implements OnInit {
       }
     )
    }
+
+   formatDate(dateD:Date){
+    const date= new Date(dateD)
+    const event=new Date(Date.UTC(date.getFullYear(),date.getMonth(),date.getDate(),3,0,0))
+    //const options = new { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    return event.toLocaleDateString('fr-FR')
+   }
+
    getOfficialFamilyName (name:HumanName[]){
      for(let i=0;i<name.length;i++){
        if(name[i].use=="official"){
@@ -31,11 +39,11 @@ export class ViewProfilComponent implements OnInit {
       if(name[i].use=="official"){
         let prenoms=name[i].given;
         for(let f=0;f<prenoms.length;f++){
-          return name[i].given
+          return prenoms[0] + " "+prenoms[1]
         }
       }
     }
-    return name[0].given
+    return name[0].given[0]+" "+name[0].given[1]
   }
     getAddress(address: Address[]){
       for(let i=0;i<address.length;i++){

@@ -8,7 +8,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatChipsModule} from '@angular/material/chips';
 
 import { AppComponent } from './app.component';
-import { AddAdministrationComponent } from './add-administration/add-administration.component';
 import { AddParametersComponent } from './add-parameters/add-parameters.component';
 import { ViewParametersComponent } from './view-parameters/view-parameters.component';
 import { ViewBoardComponent } from './view-board/view-board.component';
@@ -26,7 +25,6 @@ declare var require: any;
 const appRoutes : Routes = [
   {path:'',component:ViewBoardComponent},
   {path:'questionnaire',component:ViewQuestionnaireComponent},
-  {path:'addAdministration',component:AddAdministrationComponent},
   {path:'addParameters',component:AddParametersComponent},
   {path:'parameters',component:ViewParametersComponent},
   {path:'profil',component:ViewProfilComponent},
@@ -36,7 +34,6 @@ const appRoutes : Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    AddAdministrationComponent,
     AddParametersComponent,
     ViewParametersComponent,
     ViewBoardComponent,

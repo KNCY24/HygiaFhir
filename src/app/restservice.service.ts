@@ -46,7 +46,11 @@ export class RestserviceService {
   }
   
   getParameters():Observable<Parameters>{
-    return this.http.get<Parameters>(this.server+"parameters/6140a8b7a5b46400122cf528")
+    return this.http.get<Parameters>(this.server+"parameters/6141f619a5b46400122cf58c")
+  }
+
+  putParameters(parameters:Parameters):Observable<Parameters>{
+    return this.http.put<Parameters>(this.server+"parameters/6141f619a5b46400122cf58c",parameters)
   }
 
   postRappel(rappel:Task):Observable<Task>{
@@ -56,7 +60,6 @@ export class RestserviceService {
   getRappel():Observable<TabContent>{
     return this.http.get<TabContent>(this.server+"task")
   }
-
 
   getResponse():Observable<QuestionnaireResponse>{
     return this.http.get<QuestionnaireResponse>(this.server+"questionnaire-response")

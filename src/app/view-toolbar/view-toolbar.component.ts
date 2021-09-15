@@ -73,14 +73,12 @@ export class ViewToolbarComponent implements OnInit {
 
   addAppointment(){
     var note=new Annotation();
+    this.task.owner.reference="613f4631a5b46400122cf50c"
     if(this.frequence=="r"){
       this.task.priority="routine"
       var date=new Date("January 1,2021 "+this.time)
       this.task.executionPeriod.start=date
       note.text=String(this.selectedday)
-      /*for(let day of this.selectedday){
-        note.text=note.text+","+this.selectedday
-      }*/
       this.task.note.push(note)
     }else{
       this.task.priority="urgent"

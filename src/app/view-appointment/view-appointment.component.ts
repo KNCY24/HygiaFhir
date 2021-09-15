@@ -17,7 +17,6 @@ export class ViewAppointmentComponent implements OnInit {
     service.getRappel().subscribe(
       data => {
         this.tabcontent=data;
-        console.log(this.tabcontent)
       })
   }
 
