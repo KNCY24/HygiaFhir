@@ -240,58 +240,9 @@ export class Parameters{
 
 export class Parameter{
     name : string ="nom";
-    //valueBase64Binary : Byte=0;
-    //valueBoolean : boolean = false;
-    //valueCanonical : string = "";
-    //valueCode : string = "";
-    valueDate : Date = new Date();
-    //valueDateTime : Date = new Date();
+    valueDateTime : Date = new Date();
     valueDecimal : number = 0;
-    //valueId : string = "";
-    //valueInstant : Date = new Date();
-    //valueInterger : number = 0;
-    //valueMarkdown : string = ""; //markdown
-    //valueOid : string = ""; //oid
-    //valuePositiveInt : number = 0;
     valueString : string = "NULL";
-    //valueTime : Date = new Date();
-    //valueUnsignedInt : number = 0;
-    //valueUri : string = ""; //uri
-    //valueUrl : string = ""; //url
-    //valueUuid : string = ""; //uuid;
-    //valueAddress : Address = new Address();
-    //valueAge : number = 0; //Age
-    //valueAnnotation : Annotation = new Annotation();
-    //valueAttachment : Attachment = new Attachment();
-    //valueCodeableConcept : CodeableConcept = new CodeableConcept();
-    //valueCoding : Coding = new Coding();
-    //valueContactPoint : ContactPoint = new ContactPoint();
-    //valueCount : number = 0;
-    //valueDistance : number = 0;
-    //valueDuration : number = 0;
-    //valueHumanName : HumanName = new HumanName();
-    //valueIdentifier : Identifier = new Identifier();
-    //valueMoney : Money = new Money;
-    //valuePeriod : Period = new Period;
-    //valueQuantity : Quantity = new Quantity();
-    //valueRange : Range = new Range();
-    //alueRatio : Ratio = new Ratio();
-    //valueReference : Reference = new Reference();
-    //valueSampleData : SampledData = new SampledData();
-    //valueSignature : Signature = new Signature();
-    //valueTiming : Timing = new Timing();
-    //valueContactDetail : ContactDetail = new ContactDetail();
-    //valueContributor : Contributor = new Contributor();
-    ///valueDataRequirement : DataRequirement = new DataRequirement();
-    //valueExpression : Expression = new Expression();
-    //valueParameterDefinition : ParameterDefinition = new ParameterDefinition();
-    //valueRelatedArtifact : RelatedArtifact = new RelatedArtifact();
-    //valueTriggerDefinition : TriggerDefinition = new TriggerDefinition();
-    //valueUsageContext : UsageContext = new UsageContext();
-    //valueDosage : Dosage = new Dosage();
-    //valueMeta : Metadata = new Metadata();
-    //resource : Resource = new Resource();
-    //part : []=[];
 }
 
 export class Annotation{
@@ -444,7 +395,7 @@ export class Metadata{
 }
 
 export class TabContent{
-    tab:any[]=[];
+    tab:[]=[]
 }
 
 export class Questionnaire {

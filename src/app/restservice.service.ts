@@ -50,7 +50,6 @@ export class RestserviceService {
   }
 
   putParameters(parameters:Parameters):Observable<Parameters>{
-    console.log("Je suis passé dans le PUT")
     return this.http.put<Parameters>(this.server+"parameters/6141f619a5b46400122cf58c",parameters)
   }
 

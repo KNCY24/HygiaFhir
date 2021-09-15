@@ -13,7 +13,7 @@
                 <h2>Ma glycémie</h2>
             </div>
             <div *ngFor="let parameter of historiqueGlycemie">
-                <span [innerHTML]="parameter.valueDate"></span><span> : </span><span
+                <span [innerHTML]="parameter.valueDateTime"></span><span> : </span><span
                     [innerHTML]="parameter.valueDecimal"></span><span> g/L</span>
             </div>
         </div>
@@ -24,7 +24,7 @@
                 <h2>Mon poids</h2>
             </div>
             <div *ngFor="let parameter of historiquePoids">
-                <span [innerHTML]="parameter.valueDate"></span><span> : </span><span
+                <span [innerHTML]="parameter.valueDateTime"></span><span> : </span><span
                     [innerHTML]="parameter.valueDecimal"></span><span> kg</span>
             </div>
         </div>
@@ -35,7 +35,7 @@
                 <h2>Mes activités physiques</h2>
             </div>
             <div *ngFor="let parameter of historiqueActivite">
-                <span [innerHTML]="parameter.valueDate"></span><span> : </span><span
+                <span [innerHTML]="parameter.valueDateTime"></span><span> : </span><span
                     [innerHTML]="parameter.valueString"></span>
             </div>
         </div>

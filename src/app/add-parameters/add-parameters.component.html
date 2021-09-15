@@ -6,28 +6,32 @@
     <div class="menu">
         <div id="glycémie" class="property">
             <img src="../assets/images/mes glycemies.png" />
-            <input type="text" name="glycémie" id="input-blood-sugar-level" class='input' [(ngModel)]=myGlycemie placeholder="Taux en g/L">
-            <button type="button" class=button id="button-blood-sugar-level" (click)="addGlycemie()">Ajouter</button>
+            <form>
+                <input type="text" name="glycémie" [(ngModel)]=myGlycemie placeholder="Taux en g/L">
+            </form>
+            <button (click)="addParameter('Glycémie')">Ajouter</button>
         </div>
 
         <div id="poids" class="property">
             <img src="../assets/images/balance-de-pesee.png" />
-            <input type="text" name="poids" id="input-weight" class='input' [(ngModel)]=myWeight placeholder="Poids en kg"> 
-            <button type="button" class=button id="button-weight" (click)="addPoids()">Ajouter</button>
+            <form>
+                <input type="text" name="poids" [(ngModel)]=myWeight placeholder="Poids en kg"> 
+            </form>
+            <button (click)="addParameter('Poids')">Ajouter</button>
         </div>
 
         <div id="activite" class="property">
             <img src="../assets/images/gymnastique.png" />
-            <form class='input'>
-                <select name="activite" id="id-activite">
+            <form>
+                <select [(ngModel)]="myActivity" name="activite" >
                     <option value="">Choississez une activité</option>
-                    <option value="marche">Marche</option>
-                    <option value="course">Course</option>
-                    <option value="vélo">Vélo</option>
-                    <option value="natation">Natation</option>
+                    <option value="Marche">Marche</option>
+                    <option value="Course">Course</option>
+                    <option value="Vélo">Vélo</option>
+                    <option value="Natation">Natation</option>
                 </select>
             </form>
-            <button type="button" class=button id="button-physical-activity" (click)="addActivite()">Ajouter</button>
+            <button (click)="addParameter('Activité')">Ajouter</button>
         </div>
     </div>
 </div>
