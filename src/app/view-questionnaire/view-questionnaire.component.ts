@@ -55,8 +55,9 @@ export class ViewQuestionnaireComponent implements OnInit {
     this.questionnaire.status='draft'
     let i=0
     this.questionnaireResponse.authored=new Date();
-    this.questionnaireResponse.author="613f4631a5b46400122cf50c"
-    this.questionnaireResponse.status="completed"
+    this.questionnaireResponse.subject.reference=this.questionnaire.title;
+    this.questionnaireResponse.source.reference='613f4631a5b46400122cf50c';
+    this.questionnaireResponse.status='completed';
     while( i < document.getElementsByName("text").length){
       this.item=new ItemR();
       this.answer=new Answer();
@@ -67,6 +68,7 @@ export class ViewQuestionnaireComponent implements OnInit {
       this.questionnaireResponse.item.push(this.item)
       i=i+1
     }
+    console.log(this.questionnaireResponse)
     this.service.postQuestionnaireResponse(this.questionnaireResponse).subscribe(
       data => {
         this.service.validQuestionnaire(this.questionnaire.id,this.questionnaire).subscribe(

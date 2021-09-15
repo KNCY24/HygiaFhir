@@ -2,6 +2,7 @@ $blue-night:#233B6E;
 $blue-light:#abbff8;
 $light:#7a8183;
 $red:#ff0000;
+$darkred:#dc0005;
 $green:#00ff00;
 $blue:#4169E1;
 
@@ -29,8 +30,24 @@ $blue:#4169E1;
     background-color: white;
     color: #2c2b2b;
     padding: 0 10px 0 0;
-      
     div{
+        &#notifications{
+
+            .mat-badge-content {
+                background: $darkred;
+                color: white;
+                width:2px;
+                height:5px;
+                top:-20px;
+                left:-20px;
+                line-height: 6px;
+                font-size: 10px;
+                text-overflow: clip; 
+                
+            }
+            
+            
+        }
         &.rappel{
             position: relative;
             top:16px;

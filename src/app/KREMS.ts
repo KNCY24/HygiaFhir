@@ -14,10 +14,10 @@ export class Medication {
 }
 
 export class Identifier{
-    use : string = "";
+    use : string = "official";
     type : CodeableConcept = new CodeableConcept();
     system : string = ""; //uri
-    value : string = "";
+    value : string = "none";
     period : Period = new Period();
     assigner : string = ""; //Reference(Organization)
 }
@@ -315,7 +315,7 @@ export class Reference{
     reference : string = "";
     type : string = "";
     identifier : Identifier = new Identifier();
-    display : string = "";
+    display : string = "none";
 }
 
 export class SampledData{
@@ -546,11 +546,11 @@ export class QuestionnaireResponse {
     partOf :  string[]=[]; //Reference(Observation|Procedure) ; // Part of this action
     questionnaire :  string="" ; // Form being answered
     status : string =""; // R!  in-progress | completed | amended | entered-in-error | stopped
-    subject :  string = ""; //Reference(Any) ; // The subject of the questions
+    subject :  Reference = new Reference(); //Reference(Any) ; // The subject of the questions
     encounter :  string = ""; //Reference(Encounter) ; // Encounter created as part of
     authored :Date =new Date(); // Date =new Date() the answers were gathered
     author :  string = ""; //Reference(Device|Practitioner|PractitionerRole|Patient|RelatedPerson|Organization) ; // Person who received and recorded the answers
-    source : string = ""; //Reference(Patient|Practitioner|PractitionerRole|RelatedPerson) ; // The person who answered the questions
+    source : Reference=new Reference(); //Reference(Patient|Practitioner|PractitionerRole|RelatedPerson) ; // The person who answered the questions
     item :ItemR[]=[];
 }
 export class ItemR{

@@ -82,9 +82,10 @@ $light:#7a8183;
 :host ::ng-deep .mat-badge-content{
     background: #233B6E;
     color: white;
-    padding: 10px 15px;
-    border-radius: 50%;
-    position: relative;
-    top: -280px;
-    left: 135px;
+    padding: 10px 15px !important;
+    border-radius: 50% !important;
+    position: relative !important;
+    top: -280px !important;
+    left: 135px !important;
+    width: 12px !important;
 }

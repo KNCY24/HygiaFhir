@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import { Annotation, Task } from '../KREMS';
+import { Annotation, Task,TabContent } from '../KREMS';
 import { RestserviceService } from '../restservice.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { RestserviceService } from '../restservice.service';
   styleUrls: ['./view-toolbar.component.scss']
 })
 export class ViewToolbarComponent implements OnInit {
-
+  nbRappels=0;
   task:Task;
   isPopup=false;
   intitule="";
@@ -19,10 +19,27 @@ export class ViewToolbarComponent implements OnInit {
   type="rdv";
   listday=["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
   selectedday:boolean[]=[false,false,false,false,false,false,false];
+  tabcontent:any= new TabContent();
 
   constructor(private service:RestserviceService,private router:Router) { 
     this.task=new Task();
-  }
+    service.getRappel().subscribe(
+      data => {
+        this.tabcontent=data;
+        var count=0;
+        let today = new Date().toLocaleDateString();
+        console.log(today)
+
+        for(let rappel of this.tabcontent){
+          console.log(rappel.executionPeriod.Start.getMonth())
+          if(rappel.status="requested"){
+            count=count+1;
+          }
+        }
+        this.nbRappels=count;
+      })
+   }
+  
 
   ngOnInit(): void {
   }
@@ -54,9 +71,10 @@ export class ViewToolbarComponent implements OnInit {
       this.task.priority="routine"
       var date=new Date("January 1,2021 "+this.time)
       this.task.executionPeriod.start=date
-      for(let day of this.selectedday){
-        note.text=note+","+this.selectedday
-      }
+      note.text=String(this.selectedday)
+      /*for(let day of this.selectedday){
+        note.text=note.text+","+this.selectedday
+      }*/
       this.task.note.push(note)
     }else{
       this.task.priority="urgent"
@@ -70,6 +88,9 @@ export class ViewToolbarComponent implements OnInit {
     this.service.postRappel(this.task).subscribe(
       data => {
         this.router.navigate(['rappels'])
+        setTimeout(()=> {
+          document.location.reload() 
+        },1000)
         this.closePopup();
       })
     
