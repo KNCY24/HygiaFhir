@@ -58,9 +58,19 @@ export class ViewAppointmentComponent implements OnInit {
   }
 
   getFrequence(date:Date, days:string){
-    //var listdays=days.split('')
+    var listdays=days.split(',')
     const dateT=new Date(date)
-    return  days+" à "+this.formatTime(dateT.getHours(),dateT.getMinutes())
+    var ret=""
+    for(let i=0;i<7;i++){
+      if(listdays[i]=="true"){
+        if(ret!=""){
+          ret=ret+", "+this.listday[i]
+        }else{
+          ret=this.listday[i]
+        }
+      }
+    }
+    return  ret+" à "+this.formatTime(dateT.getHours(),dateT.getMinutes())
   }
 
   transformDate(dateD:Date){
