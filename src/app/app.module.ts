@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import {MatBadgeModule} from '@angular/material/badge';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatChipsModule} from '@angular/material/chips';
 
 import { AppComponent } from './app.component';
 import { AddAdministrationComponent } from './add-administration/add-administration.component';
 import { AddParametersComponent } from './add-parameters/add-parameters.component';
 import { ViewParametersComponent } from './view-parameters/view-parameters.component';
-import { AddAppointmentComponent } from './add-appointment/add-appointment.component';
 import { ViewBoardComponent } from './view-board/view-board.component';
 import { ViewQuestionnaireComponent } from './view-questionnaire/view-questionnaire.component';
 
@@ -26,7 +28,6 @@ const appRoutes : Routes = [
   {path:'addAdministration',component:AddAdministrationComponent},
   {path:'addParameters',component:AddParametersComponent},
   {path:'parameters',component:ViewParametersComponent},
-  {path:'addAppointment',component:AddAppointmentComponent},
   {path:'profil',component:ViewProfilComponent},
   {path:'rappels',component:ViewAppointmentComponent},
 ]
@@ -37,7 +38,6 @@ const appRoutes : Routes = [
     AddAdministrationComponent,
     AddParametersComponent,
     ViewParametersComponent,
-    AddAppointmentComponent,
     ViewBoardComponent,
     ViewQuestionnaireComponent,
     ViewToolbarComponent,
@@ -47,7 +47,11 @@ const appRoutes : Routes = [
   imports: [
     HttpClientModule,
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
     AppRoutingModule,
+    MatChipsModule,
     MatBadgeModule,
     RouterModule.forRoot(appRoutes)
   ],
