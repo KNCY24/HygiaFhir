@@ -52,7 +52,7 @@ export class ViewQuestionnaireComponent implements OnInit {
   }
 
   onSubmit(){
-    //this.questionnaire.status='draft'
+    this.questionnaire.status='draft'
     let i=0
     this.questionnaireResponse.authored=new Date();
     this.questionnaireResponse.subject.reference=this.questionnaire.title;
