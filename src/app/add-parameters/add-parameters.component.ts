@@ -19,6 +19,8 @@ export class AddParametersComponent implements OnInit {
   activite : string = "";
   $scope: any;
   myGlycemie: string ="";
+  myWeight : string = "";
+  myActivity: string ="";
 
   constructor(private service: RestserviceService) {
     this.server = service.getServer;  
@@ -31,26 +33,30 @@ export class AddParametersComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getGlycemie(){
-    //this.glycemieValue=Number(this.myGlycemie);
-  }
 
   addGlycemie(){
-    //this.parameter.name="glycémie";
-    //this.parameter.valueDecimal=Number($scope.myGlycemie);
-    //this.parameters.parameter.push(this.parameter);
-    //this.service.putParameters(this.parameters);
-    //console.log(this.parameter.valueDecimal);
-    //this.getGlycemie();
-    console.log(this.myGlycemie);
+    this.parameter.name="glycémie";
+    this.parameter.valueDecimal=Number(this.myGlycemie);
+    this.parameter.valueDate=new Date();
+    this.parameters.parameter.push(this.parameter);
+    this.service.putParameters(this.parameters).subscribe(
+      data=>{
+        this.parameters=data;
+      }
+    );
   }
 
   addPoids(){
     this.parameter.name="poids";
-    this.parameter.valueDecimal=Number(document.getElementById("input-weight")?.textContent);
+    this.parameter.valueDecimal=Number(this.myWeight);
+    this.parameter.valueDate=new Date();
     this.parameters.parameter.push(this.parameter);
-    this.service.putParameters(this.parameters);
-    console.log(this.parameter);
+    console.log(this.parameters.parameter);
+    this.service.putParameters(this.parameters).subscribe(
+      data=>{
+        this.parameters=data;
+      }
+    );   
   }
 
   addActivite(){
