@@ -45,6 +45,9 @@ export class AddParametersComponent implements OnInit {
     this.service.putParameters(this.parameters).subscribe(
       data=>{
         this.parameters=data;
+        this.myGlycemie="";
+        this.myWeight= "";
+        this.myActivity="";
       }
     );
   }
