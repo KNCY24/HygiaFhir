@@ -19,7 +19,7 @@ $blue:#4169E1;
 }
 
 
-.toolbar {
+:host ::ng-deep .toolbar {
     position: absolute;
     top: 0;
     left: 0;
@@ -31,66 +31,6 @@ $blue:#4169E1;
     color: #2c2b2b;
     padding: 0 10px 0 0;
     div{
-        &#notifications{
-            h2{
-                font-family: 'Patrick Hand', cursive;
-                font-size: 30px;
-            }
-            p{
-                &.gauche{
-                    text-align:left;
-                    padding-left:10px;
-                    margin-bottom:0;
-                }
-                &.droite{
-                    text-align:left;
-                    padding-left:25px;
-                    margin-top:0;
-                    padding-top:0px;
-                    font-size:13px;
-                    border-bottom-style: solid;
-                    border-bottom-width:3px;
-                    border-bottom-color: lightgray;
-                }
-            }
-          
-            .mat-badge-content {
-                background: $darkred;
-                color: white;
-                //width:2px;
-                //height:5px;
-                top:50px;
-                //left:-20px;
-                //line-height: 6px;
-                //font-size: 10px;
-                //text-overflow: clip; 
-                
-            }
-            .tooltiptext {
-                background-color: #ffffff;
-                width: 170px;
-                height: 100%;
-                padding: 10px;
-                border: 1px ridge $blue;
-                visibility: hidden;
-                text-align: center;
-                border-radius: 10px;
-                padding: 5px 0;
-                top: 100%;
-                left: 50%;
-                margin-left: -60px;
-                
-              }
-            
-              &.tooltip:hover .tooltiptext {
-                visibility: visible;
-            }
-
-        }
-
-      
-          
-          
         &.rappel{
             position: relative;
             top:16px;
@@ -117,6 +57,17 @@ $blue:#4169E1;
             }
         }
     }
+    button.tooltip{
+        top:16px;
+        right:10px;
+        position: relative;
+        background:none;
+        border:1px solid $blue-night;
+        border-radius: 5px;
+        &:hover{
+            background-color: $light;
+        }
+    }
     img {
         &#logo-img{
             padding-top : 30px;
@@ -126,15 +77,18 @@ $blue:#4169E1;
             }
         }
         &#alert-img {
-            padding-top : 30px;
-            width: 50px;
+            width: 42px;
             &:hover{
                 animation: shake 0.5s ease infinite alternate;
                 cursor: pointer;
             }
         }
     }
-
+    
+    .mat-badge-content{
+        background: #ff5f42;
+        color: white;
+    }
     
 }
  
