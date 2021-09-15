@@ -8,8 +8,13 @@
         <span>Ajouter un rappel</span>
     </div>
     
-    <div class="card" id="notifications" [matBadge]="nbRappels" matBadgePosition="before" matBadgeSize="small">
+    <div class="tooltip" id="notifications" [matBadge]="nbRappels" matBadgePosition="before">
         <img id="alert-img" alt="alert" src="assets/images/notification.png"/> 
+        <div class="tooltiptext"*ngFor="let rappel of notifs" >
+            <h2>Rappels</h2>
+            <p class="gauche">{{getIntitule(rappel.description)}}</p>
+            <p class="droite">{{getFrequence(rappel.executionPeriod.start)}}</p>
+        </div>
     </div>
 
     <div id="dark-background" *ngIf="isPopup==true">
