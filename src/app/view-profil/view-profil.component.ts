@@ -46,10 +46,16 @@ export class ViewProfilComponent implements OnInit {
       return address[0].text
     }
     getEmail(telecom: ContactPoint[]){
-      for(let i=0;i<telecom.length;i++){
+      let taille=telecom.length
+      var numeros:string[]=[]; 
+      if(telecom[taille-1].system=="phone"){
+        numeros.push(telecom[taille-1].value)
+      }
+      for(let i=0;i<taille;i++){
         
         if(telecom[i].system=="email"){
-          return telecom[i].value
+          numeros.push(telecom[i].value)
+          return numeros
         }
         else{
           return "-"
