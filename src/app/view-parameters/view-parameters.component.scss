@@ -84,6 +84,9 @@ $blue-night:#233B6E;
                 &::-webkit-scrollbar-thumb{
                     background-color: #000000;
                 }
+                &:hover{
+                    cursor: pointer;
+                }
             }
             
             &#glycémie{
