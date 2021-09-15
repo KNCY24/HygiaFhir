@@ -56,7 +56,7 @@ $light:#7a8183;
                 grid-area: activite;
             }
 
-            .input{
+            input{
                 width: 250px;
                 height: 20px;
                 text-align: center;
@@ -65,7 +65,7 @@ $light:#7a8183;
     }
 
     
-    .button{
+    button{
         border: 1px solid $blue;
         width: 250px;
         height: 30px;

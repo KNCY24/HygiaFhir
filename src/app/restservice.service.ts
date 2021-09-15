@@ -46,12 +46,11 @@ export class RestserviceService {
   }
   
   getParameters():Observable<Parameters>{
-    return this.http.get<Parameters>(this.server+"parameters/6140a8b7a5b46400122cf528")
+    return this.http.get<Parameters>(this.server+"parameters/6141f619a5b46400122cf58c")
   }
 
   putParameters(parameters:Parameters):Observable<Parameters>{
-    console.log("Je suis passé dans le PUT")
-    return this.http.put<Parameters>(this.server+"parameters/6140a8b7a5b46400122cf528",parameters)
+    return this.http.put<Parameters>(this.server+"parameters/6141f619a5b46400122cf58c",parameters)
   }
 
   postRappel(rappel:Task):Observable<Task>{

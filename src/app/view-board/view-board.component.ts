@@ -52,9 +52,11 @@ export class ViewBoardComponent implements OnInit {
     for(let i=0;i<name.length;i++){
       if(name[i].use=="official"){
         return name[i].family
+      }else{
+        return name[0].family
       }
     }
-    return name[0].family
+    return ""
   }
 
 }

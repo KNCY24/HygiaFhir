@@ -28,10 +28,8 @@ export class ViewToolbarComponent implements OnInit {
         this.tabcontent=data;
         var count=0;
         let today = new Date().toLocaleDateString();
-        console.log(today)
 
         for(let rappel of this.tabcontent){
-          console.log(rappel.executionPeriod.Start.getMonth())
           if(rappel.status="requested"){
             count=count+1;
           }
@@ -72,9 +70,6 @@ export class ViewToolbarComponent implements OnInit {
       var date=new Date("January 1,2021 "+this.time)
       this.task.executionPeriod.start=date
       note.text=String(this.selectedday)
-      /*for(let day of this.selectedday){
-        note.text=note.text+","+this.selectedday
-      }*/
       this.task.note.push(note)
     }else{
       this.task.priority="urgent"
