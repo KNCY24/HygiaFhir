@@ -27,16 +27,31 @@ export class ViewToolbarComponent implements OnInit {
     service.getRappel().subscribe(
       data => {
         this.tabcontent=data;
+        console.log(this.tabcontent)
         var count=0;
         let today = new Date()
-        //let month=" "+today.getFullYear()+"-"+today.getMonth()+"-"+today.getDay()
-        console.log(today)
         for(let rappel of this.tabcontent){
-          if(rappel.owner.reference=='613f4631a5b46400122cf50c'){
+          console.log(this.tabcontent.length)
+          if(rappel.owner.reference==='613f4631a5b46400122cf50c'){
+            console.log(rappel.description)
             let date=rappel.executionPeriod.start
+            let days=rappel.note[0].text
+            var listdays=days.split(',')
+            const dateT=new Date(date)
+            var ret=""
+            for(let i=0;i<7;i++){
+              if(listdays[i]=="true"){
+                if(ret!=""){
+                  ret=ret+", "+this.listday[i]
+                }else{
+                  ret=this.listday[i]
+                }
+              }
+            }
+            
             let DateNotif= new Date(date);
-            console.log()
-            if( DateNotif.toLocaleDateString()==today.toLocaleDateString()){
+            console.log(ret)
+            if(DateNotif.toLocaleDateString()==today.toLocaleDateString() || ret.includes(today.toLocaleDateString('fr-fr', {  weekday: 'long' }))){
               this.notifs.push(rappel)
               count=count+1;
             }
